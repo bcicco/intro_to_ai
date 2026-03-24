@@ -21,3 +21,7 @@ class Problem(BaseModel):
     destinations: List[int]
 
 
+class SearchNode(BaseModel):
+    node_id: int
+    path: List[int]
+    cost: float
