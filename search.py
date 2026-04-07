@@ -18,6 +18,22 @@ class Frontier:
 
     def __len__(self) -> int:
         return len(self._stack)
+    
+class BFSFrontier:
+    def __init__(self):
+        self._queue: list[SearchNode] = []
+    
+    def push(self, node: SearchNode) -> None:
+        self._queue.append(node)
+
+    def pop(self) -> SearchNode:
+        return self._queue.pop(0)
+    
+    def is_empty(self) -> bool:
+        return len(self._queue) == 0
+    
+    def __len__(self) -> int:
+        return len(self._queue)
 
 
 def dfs(problem: Problem) -> tuple[list[int], float, int] | None:
