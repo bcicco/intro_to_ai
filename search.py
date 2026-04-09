@@ -1,4 +1,6 @@
 import sys
+import math
+import heapq
 from models import Problem, SearchNode
 from helpers import parse_problem
 
@@ -106,10 +108,136 @@ def bfs(problem: Problem) -> tuple[list[int], float, int] | None:
                 nodes_created +=1
     return None
 
+def heuristic(node_id: int, destinations: list[int], node_map) -> float:
+    """
+    Euclidean distance from current node to the closest destination.
+    """
+    current = node_map[node_id]
+    x1, y1 = current.coordinates
+    best = float("inf")
+
+    for dest_id in destinations:
+        dest = node_map[dest_id]
+        x2, y2 = dest.coordinates
+        dist = math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+        best = min(best, dist)
+
+    return best
+
+
+def astar(problem: Problem) -> tuple[list[int], float, int] | None:
+    """Returns (path, cost, nodes_created) or None if no path exists."""
+
+    node_map = {n.id: n for n in problem.nodes}
+    destinations = set(problem.destinations)
+    nodes_created = 0
+    insertion_order = 0
+
+    frontier = []
+
+    start = SearchNode(
+        node_id=problem.origin,
+        path=[problem.origin],
+        cost=0.0
+    )
+
+    start_h = heuristic(problem.origin, problem.destinations, node_map)
+    heapq.heappush(frontier, (start.cost + start_h, start.node_id, insertion_order, start))
+    nodes_created += 1
+
+    visited: set[int] = set()
+
+    while frontier:
+        _, _, _, current = heapq.heappop(frontier)
+
+        if current.node_id in visited:
+            continue
+        visited.add(current.node_id)
+
+        if current.node_id in destinations:
+            return current.path, current.cost, nodes_created
+
+        node = node_map[current.node_id]
+
+        for edge in sorted(node.edges, key=lambda e: e.end_node_id):
+            if edge.end_node_id not in visited:
+                child = SearchNode(
+                    node_id=edge.end_node_id,
+                    path=current.path + [edge.end_node_id],
+                    cost=current.cost + edge.cost,
+                )
+
+                insertion_order += 1
+                h = heuristic(edge.end_node_id, problem.destinations, node_map)
+                f = child.cost + h
+
+                heapq.heappush(frontier, (f, child.node_id, insertion_order, child))
+                nodes_created += 1
+
+    return None
+
+
+def cus2(problem: Problem) -> tuple[list[int], float, int] | None:
+    """
+    Custom informed method: Weighted A*
+    f(n) = g(n) + 1.5 * h(n)
+    """
+
+    node_map = {n.id: n for n in problem.nodes}
+    destinations = set(problem.destinations)
+    nodes_created = 0
+    insertion_order = 0
+    weight = 1.5
+
+    frontier = []
+
+    start = SearchNode(
+        node_id=problem.origin,
+        path=[problem.origin],
+        cost=0.0
+    )
+
+    start_h = heuristic(problem.origin, problem.destinations, node_map)
+    heapq.heappush(frontier, (start.cost + weight * start_h, start.node_id, insertion_order, start))
+    nodes_created += 1
+
+    visited: set[int] = set()
+
+    while frontier:
+        _, _, _, current = heapq.heappop(frontier)
+
+        if current.node_id in visited:
+            continue
+        visited.add(current.node_id)
+
+        if current.node_id in destinations:
+            return current.path, current.cost, nodes_created
+
+        node = node_map[current.node_id]
+
+        for edge in sorted(node.edges, key=lambda e: e.end_node_id):
+            if edge.end_node_id not in visited:
+                child = SearchNode(
+                    node_id=edge.end_node_id,
+                    path=current.path + [edge.end_node_id],
+                    cost=current.cost + edge.cost,
+                )
+
+                insertion_order += 1
+                h = heuristic(edge.end_node_id, problem.destinations, node_map)
+                f = child.cost + weight * h
+
+                heapq.heappush(frontier, (f, child.node_id, insertion_order, child))
+                nodes_created += 1
+
+    return None
+    
 
 METHODS = {
     "DFS": dfs,
     "BFS": bfs,
+    "AS": astar,
+    "CUS2": cus2,
 }
 
 
