@@ -5,7 +5,7 @@ from models import Problem, SearchNode
 from helpers import parse_problem
 
 
-class Frontier:
+class DFSFrontier:
     def __init__(self):
         self._stack: list[SearchNode] = []
 
@@ -20,7 +20,8 @@ class Frontier:
 
     def __len__(self) -> int:
         return len(self._stack)
-    
+
+
 class BFSFrontier:
     def __init__(self):
         self._queue: list[SearchNode] = []
@@ -44,7 +45,7 @@ def dfs(problem: Problem) -> tuple[list[int], float, int] | None:
     destinations = set(problem.destinations)
     nodes_created = 0
 
-    frontier = Frontier()
+    frontier = DFSFrontier()
     frontier.push(SearchNode(node_id=problem.origin, path=[problem.origin], cost=0.0))
     nodes_created += 1
     visited: set[int] = set()
@@ -60,8 +61,7 @@ def dfs(problem: Problem) -> tuple[list[int], float, int] | None:
             return current.path, current.cost, nodes_created
 
         node = node_map[current.node_id]
-        # Push in reverse so lower-numbered edges are explored first
-        for edge in reversed(node.edges):
+        for edge in sorted(node.edges, key=lambda e: e.end_node_id, reverse=True):
             if edge.end_node_id not in visited:
                 frontier.push(SearchNode(
                     node_id=edge.end_node_id,
@@ -72,29 +72,30 @@ def dfs(problem: Problem) -> tuple[list[int], float, int] | None:
 
     return None
 
+
 def bfs(problem: Problem) -> tuple[list[int], float, int] | None:
-    """Returns (path, cost, nodes_created) or none if no path exists."""
+    """Returns (path, cost, nodes_created) or None if no path exists."""
 
     node_map = {n.id: n for n in problem.nodes}
-    destination = set(problem.destinations)
+    destinations = set(problem.destinations)
     nodes_created = 0
 
     frontier = BFSFrontier()
-    frontier.push(SearchNode(node_id=problem.origin, path=[problem.origin] , cost=0.0))
+    frontier.push(SearchNode(node_id=problem.origin, path=[problem.origin], cost=0.0))
     nodes_created += 1
 
-    visited:set[int] = set()
-    seen:set[int] = {problem.origin}
+    visited: set[int] = set()
+    seen: set[int] = {problem.origin}
 
     while not frontier.is_empty():
         current = frontier.pop()
 
-        if current.node_id is visited:
+        if current.node_id in visited:
             continue
         visited.add(current.node_id)
 
-        if current.node_id in destination:
-            return current.path , current.cost, nodes_created
+        if current.node_id in destinations:
+            return current.path, current.cost, nodes_created
         node = node_map[current.node_id]
 
         for edge in sorted(node.edges, key=lambda e: e.end_node_id):
@@ -102,11 +103,12 @@ def bfs(problem: Problem) -> tuple[list[int], float, int] | None:
                 frontier.push(SearchNode(
                     node_id=edge.end_node_id,
                     path=current.path + [edge.end_node_id],
-                    cost= current.cost + edge.cost,
+                    cost=current.cost + edge.cost,
                 ))
                 seen.add(edge.end_node_id)
-                nodes_created +=1
+                nodes_created += 1
     return None
+
 
 def heuristic(node_id: int, destinations: list[int], node_map) -> float:
     """
