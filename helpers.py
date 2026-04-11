@@ -1,3 +1,6 @@
+import math
+from collections import defaultdict
+
 from models import Problem, Node, Edge
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -73,24 +76,58 @@ def visualise(
         for i in range(len(path) - 1):
             path_edges.add((path[i], path[i + 1]))
 
-    # Draw edges
+    NODE_RADIUS = 0.2
+
+    # Group all edges by unit vector so that parallel/collinear edges can be
+    # curved apart instead of drawing on top of each other.
+    edge_groups: dict[tuple[float, float], list] = defaultdict(list)
     for node in problem.nodes:
         x1, y1 = node.coordinates
         for edge in node.edges:
             x2, y2 = node_map[edge.end_node_id].coordinates
+            dx, dy = x2 - x1, y2 - y1
+            length = math.sqrt(dx * dx + dy * dy)
+            if length == 0:
+                continue
+            unit = (round(dx / length, 4), round(dy / length, 4))
             on_path = (edge.start_node_id, edge.end_node_id) in path_edges
+            edge_groups[unit].append((x1, y1, x2, y2, length, edge, on_path))
+
+    # Draw each group. Single edges go straight (rad=0); multiples fan out
+    # symmetrically using arc3 connectionstyle.
+    for unit, group in edge_groups.items():
+        n = len(group)
+        ux, uy = unit
+        for i, (x1, y1, x2, y2, length, edge, on_path) in enumerate(group):
+            rad = (i - (n - 1) / 2) * 0.3
+
+            # Offset endpoints to node boundary so arrowhead is visible
+            sx, sy = x1 + NODE_RADIUS * ux, y1 + NODE_RADIUS * uy
+            ex, ey = x2 - NODE_RADIUS * ux, y2 - NODE_RADIUS * uy
+
             ax.annotate(
                 "",
-                xy=(x2, y2),
-                xytext=(x1, y1),
+                xy=(ex, ey),
+                xytext=(sx, sy),
                 zorder=3 if on_path else 1,
                 arrowprops=dict(
-                    arrowstyle="->",
+                    arrowstyle="-|>",
                     color="darkorange" if on_path else "gray",
                     lw=2.5 if on_path else 1.2,
+                    mutation_scale=12,
+                    connectionstyle=f"arc3,rad={rad:.3f}",
                 ),
             )
+
+            # Place cost label at the arc midpoint (shifted perpendicular
+            # to the edge for curved arrows so it doesn't sit on the line)
             mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+            if rad != 0:
+                # Perpendicular direction is (-uy, ux); arc midpoint is
+                # displaced by roughly rad * length / 2 from the chord
+                perp_scale = rad * length * 0.4
+                mx += perp_scale * (-uy)
+                my += perp_scale * ux
             ax.text(
                 mx, my, str(edge.cost), fontsize=8,
                 color="darkorange" if on_path else "dimgray",
