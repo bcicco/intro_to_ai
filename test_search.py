@@ -15,30 +15,33 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from models import Edge, Node, Problem
-from search import METHODS, astar, bfs, cus1, cus2, dfs
+from search import METHODS, astar, bfs, cus1, cus2, dfs, gbfs
 from helpers import parse_problem, visualise
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
+
 def make_problem(
-    nodes: list[tuple[int, int, int]],    # (id, x, y)
+    nodes: list[tuple[int, int, int]],  # (id, x, y)
     edges: list[tuple[int, int, float]],  # (start, end, cost)
     origin: int,
     destinations: list[int],
 ) -> Problem:
     node_map = {nid: Node(id=nid, coordinates=(x, y)) for nid, x, y in nodes}
     for start, end, cost in edges:
-        node_map[start].edges.append(Edge(start_node_id=start, end_node_id=end, cost=cost))
-    return Problem(nodes=list(node_map.values()), origin=origin, destinations=destinations)
+        node_map[start].edges.append(
+            Edge(start_node_id=start, end_node_id=end, cost=cost)
+        )
+    return Problem(
+        nodes=list(node_map.values()), origin=origin, destinations=destinations
+    )
 
 
 def is_valid_path(path: list[int], problem: Problem) -> bool:
     """Every consecutive pair in path must be connected by an edge."""
     edge_set = {
-        (e.start_node_id, e.end_node_id)
-        for n in problem.nodes
-        for e in n.edges
+        (e.start_node_id, e.end_node_id) for n in problem.nodes for e in n.edges
     }
     return all((path[i], path[i + 1]) in edge_set for i in range(len(path) - 1))
 
@@ -46,18 +49,17 @@ def is_valid_path(path: list[int], problem: Problem) -> bool:
 def path_cost(path: list[int], problem: Problem) -> float:
     """Sum the actual edge costs along a path."""
     cost_map = {
-        (e.start_node_id, e.end_node_id): e.cost
-        for n in problem.nodes
-        for e in n.edges
+        (e.start_node_id, e.end_node_id): e.cost for n in problem.nodes for e in n.edges
     }
     return sum(cost_map[(path[i], path[i + 1])] for i in range(len(path) - 1))
 
 
-ALL = [dfs, bfs, astar, cus1, cus2]
-NAMES = ["DFS", "BFS", "A*", "CUS1", "CUS2"]
+ALL = [dfs, bfs, astar, gbfs, cus1, cus2]
+NAMES = ["DFS", "BFS", "A*", "GBFS", "CUS1", "CUS2"]
 
 
 # ── 1. Linear chain ───────────────────────────────────────────────────────────
+
 
 class TestLinearChain(unittest.TestCase):
     """
@@ -85,6 +87,7 @@ class TestLinearChain(unittest.TestCase):
 
 # ── 2. No path (disconnected) ─────────────────────────────────────────────────
 
+
 class TestNoPath(unittest.TestCase):
     """
     Two disconnected components: {1,2,3} and {4,5}.
@@ -106,6 +109,7 @@ class TestNoPath(unittest.TestCase):
 
 
 # ── 3. Origin is destination ──────────────────────────────────────────────────
+
 
 class TestOriginIsDestination(unittest.TestCase):
     """
@@ -131,6 +135,7 @@ class TestOriginIsDestination(unittest.TestCase):
 
 
 # ── 4. Multiple destinations ──────────────────────────────────────────────────
+
 
 class TestMultipleDestinations(unittest.TestCase):
     """
@@ -174,6 +179,7 @@ class TestMultipleDestinations(unittest.TestCase):
 
 # ── 5. Weighted shortcut ──────────────────────────────────────────────────────
 
+
 class TestWeightedShortcut(unittest.TestCase):
     """
     Two paths from 1 to 4:
@@ -213,6 +219,7 @@ class TestWeightedShortcut(unittest.TestCase):
 
 # ── 6. Cycle handling ─────────────────────────────────────────────────────────
 
+
 class TestCycleHandling(unittest.TestCase):
     """
     1 → 2 → 3 → 1  (cycle)
@@ -239,6 +246,7 @@ class TestCycleHandling(unittest.TestCase):
 
 
 # ── 7. Directed graph ─────────────────────────────────────────────────────────
+
 
 class TestDirectedGraph(unittest.TestCase):
     """
@@ -269,6 +277,7 @@ class TestDirectedGraph(unittest.TestCase):
 
 
 # ── 8. Diamond graph (two equal paths) ───────────────────────────────────────
+
 
 class TestDiamondGraph(unittest.TestCase):
     """
@@ -304,6 +313,7 @@ class TestDiamondGraph(unittest.TestCase):
 
 # ── 9. Star graph (many branches, one leads to goal) ─────────────────────────
 
+
 class TestStarGraph(unittest.TestCase):
     """
     Hub node 1 connects to 6 branches; only branch 5 leads to goal 10.
@@ -317,12 +327,26 @@ class TestStarGraph(unittest.TestCase):
         self.p = make_problem(
             nodes=[
                 (1, 3, 3),
-                (2, 0, 5), (3, 1, 5), (4, 2, 5), (5, 3, 5), (6, 4, 5), (7, 5, 5),
-                (8, 3, 7), (9, 3, 9), (10, 3, 11),
+                (2, 0, 5),
+                (3, 1, 5),
+                (4, 2, 5),
+                (5, 3, 5),
+                (6, 4, 5),
+                (7, 5, 5),
+                (8, 3, 7),
+                (9, 3, 9),
+                (10, 3, 11),
             ],
             edges=[
-                (1, 2, 1), (1, 3, 1), (1, 4, 1), (1, 5, 1), (1, 6, 1), (1, 7, 1),
-                (5, 8, 1), (8, 9, 1), (9, 10, 1),
+                (1, 2, 1),
+                (1, 3, 1),
+                (1, 4, 1),
+                (1, 5, 1),
+                (1, 6, 1),
+                (1, 7, 1),
+                (5, 8, 1),
+                (8, 9, 1),
+                (9, 10, 1),
             ],
             origin=1,
             destinations=[10],
@@ -345,6 +369,7 @@ class TestStarGraph(unittest.TestCase):
 
 # ── 10. Long bidirectional chain (CUS1 vs BFS) ───────────────────────────────
 
+
 class TestBidirectionalEfficiency(unittest.TestCase):
     """
     Chain of 20 nodes with edges in both directions: 1↔2↔...↔20.
@@ -355,9 +380,8 @@ class TestBidirectionalEfficiency(unittest.TestCase):
         n = 20
         self.p = make_problem(
             nodes=[(i, i - 1, 0) for i in range(1, n + 1)],
-            edges=
-                [(i, i + 1, 1.0) for i in range(1, n)] +
-                [(i + 1, i, 1.0) for i in range(1, n)],
+            edges=[(i, i + 1, 1.0) for i in range(1, n)]
+            + [(i + 1, i, 1.0) for i in range(1, n)],
             origin=1,
             destinations=[n],
         )
@@ -374,6 +398,7 @@ class TestBidirectionalEfficiency(unittest.TestCase):
 
 
 # ── 11. Nodes created count is positive ──────────────────────────────────────
+
 
 class TestNodesCreatedCount(unittest.TestCase):
     """nodes_created must be >= 1 whenever a result is returned."""
@@ -405,6 +430,7 @@ class TestNodesCreatedCount(unittest.TestCase):
 
 # ── 12. METHODS registry ─────────────────────────────────────────────────────
 
+
 class TestMethodsRegistry(unittest.TestCase):
     """METHODS dict must expose all expected keys and map to callables."""
 
@@ -418,6 +444,7 @@ class TestMethodsRegistry(unittest.TestCase):
 
 
 # ── 13. Integration: provided test file ──────────────────────────────────────
+
 
 class TestProvidedFile(unittest.TestCase):
     """
@@ -463,6 +490,7 @@ class TestProvidedFile(unittest.TestCase):
 
 # ── Visualisation ────────────────────────────────────────────────────────────
 
+
 def visualize_files(pattern: str | None = None) -> None:
     """
     Show one figure per test file with a subplot for each algorithm.
@@ -494,7 +522,6 @@ def visualize_files(pattern: str | None = None) -> None:
                 subtitle = f"{name}   no path found"
             visualise(problem, path=path, ax=axes[i], title=subtitle)
 
-        axes[5].axis("off")
         plt.tight_layout()
         plt.show()
 
@@ -502,14 +529,17 @@ def visualize_files(pattern: str | None = None) -> None:
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Search algorithm tests + visualisation")
+    parser = argparse.ArgumentParser(
+        description="Search algorithm tests + visualisation"
+    )
     parser.add_argument(
-        "--visualize", "-V",
+        "--visualize",
+        "-V",
         nargs="?",
         const="",
         metavar="PATTERN",
         help="Visualise test files instead of running tests. "
-             "Optionally pass a substring to filter filenames (e.g. '09').",
+        "Optionally pass a substring to filter filenames (e.g. '09').",
     )
     args, remaining = parser.parse_known_args()
 
