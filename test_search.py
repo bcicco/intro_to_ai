@@ -435,7 +435,7 @@ class TestMethodsRegistry(unittest.TestCase):
     """METHODS dict must expose all expected keys and map to callables."""
 
     def test_all_keys_present(self):
-        for key in ("DFS", "BFS", "AS", "CUS1", "CUS2"):
+        for key in ("DFS", "BFS","GBFS", "AS", "CUS1", "CUS2"):
             self.assertIn(key, METHODS)
 
     def test_all_values_callable(self):
