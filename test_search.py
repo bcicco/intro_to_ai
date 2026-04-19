@@ -187,7 +187,7 @@ class TestWeightedShortcut(unittest.TestCase):
       1 → 3 → 4   (2 hops, cost 11)
 
     BFS may take either (equal hops — picks lower node ID first → [1,2,4]).
-    A* must find the cheaper path [1,3,4] (cost 11).
+    A* and GBFS  must find the cheaper path [1,3,4] (cost 11).
     """
 
     def setUp(self):
