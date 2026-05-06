@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import openpyxl; print\\('openpyxl:', openpyxl.__version__\\)\")",
+      "Bash(python -c \"import pandas; print\\('pandas:', pandas.__version__\\)\")",
+      "Bash(python -c \"import numpy; print\\('numpy:', numpy.__version__\\)\")",
+      "Bash(python -c \"import matplotlib; print\\('matplotlib:', matplotlib.__version__\\)\")",
+      "Bash(python -c \"import pyarrow; print\\('pyarrow:', pyarrow.__version__\\)\")",
+      "Bash(python -m pip install pandas openpyxl pyarrow xlrd)",
+      "Bash(where python *)",
+      "Bash(where uv *)",
+      "Bash(uv add *)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}
