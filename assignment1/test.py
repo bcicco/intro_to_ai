@@ -1,5 +1,5 @@
-from helpers import parse_problem, visualise
-from search import dfs
+from assignment1.helpers import parse_problem, visualise
+from assignment1.search import dfs
 
 problem = parse_problem("test_data/PathFinder-test.txt")
 

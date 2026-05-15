@@ -10,7 +10,13 @@
       "Bash(where python *)",
       "Bash(where uv *)",
       "Bash(uv add *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(.venvScriptspython.exe -c ' *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\benja\\\\Desktop\\\\SWINFINAL\\\\assignment1introtoai\\\\intro_to_ai\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('c:\\\\\\\\Users\\\\\\\\benja\\\\\\\\Desktop\\\\\\\\SWINFINAL\\\\\\\\assignment1introtoai\\\\\\\\intro_to_ai\\\\\\\\asssignment2\\\\\\\\data\\\\\\\\processed\\\\\\\\scats_wide.parquet'\\); print\\(df.columns[:5].tolist\\(\\)\\)\")",
+      "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\(r'c:\\\\Users\\\\benja\\\\Desktop\\\\SWINFINAL\\\\assignment1introtoai\\\\intro_to_ai\\\\asssignment2\\\\data\\\\processed\\\\scats_wide.parquet'\\); print\\(df.columns[:5].tolist\\(\\)\\)\")"
     ]
   }
 }

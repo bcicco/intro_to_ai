@@ -1,0 +1,1714 @@
+{
+  "0970": {
+    "site_id": "0970",
+    "roads": [
+      "HIGH STREET_RD",
+      "WARRIGAL_RD"
+    ],
+    "approaches": [
+      {
+        "location": "HIGH STREET_RD E of WARRIGAL_RD",
+        "sensor_road": "HIGH STREET_RD",
+        "sensor_side": "E",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "W",
+        "latitude": -37.86735,
+        "longitude": 145.09195
+      },
+      {
+        "location": "HIGH STREET_RD W of WARRIGAL_RD",
+        "sensor_road": "HIGH STREET_RD",
+        "sensor_side": "W",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "E",
+        "latitude": -37.86723,
+        "longitude": 145.09103
+      },
+      {
+        "location": "WARRIGAL_RD N of HIGH STREET_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "N",
+        "cross_road": "HIGH STREET_RD",
+        "travel_direction": "S",
+        "latitude": -37.86703000000001,
+        "longitude": 145.09159
+      },
+      {
+        "location": "WARRIGAL_RD S of HIGH STREET_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "S",
+        "cross_road": "HIGH STREET_RD",
+        "travel_direction": "N",
+        "latitude": -37.8676,
+        "longitude": 145.09146
+      }
+    ],
+    "latitude": -37.8673025,
+    "longitude": 145.0915075
+  },
+  "2000": {
+    "site_id": "2000",
+    "roads": [
+      "BURWOOD_HWY",
+      "TOORAK_RD",
+      "WARRIGAL_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURWOOD_HWY E of WARRIGAL_RD",
+        "sensor_road": "BURWOOD_HWY",
+        "sensor_side": "E",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "W",
+        "latitude": -37.851929999999996,
+        "longitude": 145.09463
+      },
+      {
+        "location": "TOORAK_RD W of WARRIGAL_RD",
+        "sensor_road": "TOORAK_RD",
+        "sensor_side": "W",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "E",
+        "latitude": -37.851870000000005,
+        "longitude": 145.09407
+      },
+      {
+        "location": "WARRIGAL_RD N of TOORAK_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "N",
+        "cross_road": "TOORAK_RD",
+        "travel_direction": "S",
+        "latitude": -37.851682700000005,
+        "longitude": 145.0943457
+      },
+      {
+        "location": "WARRIGAL_RD S of BURWOOD_HWY",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "S",
+        "cross_road": "BURWOOD_HWY",
+        "travel_direction": "N",
+        "latitude": -37.85221,
+        "longitude": 145.09425
+      }
+    ],
+    "latitude": -37.851923174999996,
+    "longitude": 145.094323925
+  },
+  "2200": {
+    "site_id": "2200",
+    "roads": [
+      "MAROONDAH_HWY",
+      "UNION_RD"
+    ],
+    "approaches": [
+      {
+        "location": "MAROONDAH_HWY E of UNION_RD",
+        "sensor_road": "MAROONDAH_HWY",
+        "sensor_side": "E",
+        "cross_road": "UNION_RD",
+        "travel_direction": "W",
+        "latitude": -37.81655,
+        "longitude": 145.09831
+      },
+      {
+        "location": "MAROONDAH_HWY W of UNION_RD",
+        "sensor_road": "MAROONDAH_HWY",
+        "sensor_side": "W",
+        "cross_road": "UNION_RD",
+        "travel_direction": "E",
+        "latitude": -37.8164799,
+        "longitude": 145.0977388
+      },
+      {
+        "location": "UNION_RD N of MAROONDAH_HWY",
+        "sensor_road": "UNION_RD",
+        "sensor_side": "N",
+        "cross_road": "MAROONDAH_HWY",
+        "travel_direction": "S",
+        "latitude": -37.81631,
+        "longitude": 145.09812
+      },
+      {
+        "location": "UNION_RD S of MAROONDAH_HWY",
+        "sensor_road": "UNION_RD",
+        "sensor_side": "S",
+        "cross_road": "MAROONDAH_HWY",
+        "travel_direction": "N",
+        "latitude": -37.81682,
+        "longitude": 145.09802
+      }
+    ],
+    "latitude": -37.816539975,
+    "longitude": 145.0980472
+  },
+  "2820": {
+    "site_id": "2820",
+    "roads": [
+      "CHANDLER_HWY",
+      "EARL_ST",
+      "PRINCESS_ST"
+    ],
+    "approaches": [
+      {
+        "location": "EARL_ST SE of PRINCESS_ST",
+        "sensor_road": "EARL_ST",
+        "sensor_side": "SE",
+        "cross_road": "PRINCESS_ST",
+        "travel_direction": "NW",
+        "latitude": -37.79477,
+        "longitude": 145.03077
+      },
+      {
+        "location": "PRINCESS_ST S of CHANDLER_HWY",
+        "sensor_road": "PRINCESS_ST",
+        "sensor_side": "S",
+        "cross_road": "CHANDLER_HWY",
+        "travel_direction": "N",
+        "latitude": -37.7948,
+        "longitude": 145.03015
+      }
+    ],
+    "latitude": -37.794785000000005,
+    "longitude": 145.03046
+  },
+  "2825": {
+    "site_id": "2825",
+    "roads": [
+      "BURKE_RD",
+      "EASTERN_FWY"
+    ],
+    "approaches": [
+      {
+        "location": "BURKE_RD S of EASTERN_FWY",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "EASTERN_FWY",
+        "travel_direction": "N",
+        "latitude": -37.78661,
+        "longitude": 145.06202
+      }
+    ],
+    "latitude": -37.78661,
+    "longitude": 145.06202
+  },
+  "2827": {
+    "site_id": "2827",
+    "roads": [
+      "BULLEEN_RD",
+      "EASTERN_FWY_W_BD_RAMPS",
+      "OFFRAMP_EASTERN_FWY",
+      "THOMPSONS_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BULLEEN_RD N of THOMPSONS_RD",
+        "sensor_road": "BULLEEN_RD",
+        "sensor_side": "N",
+        "cross_road": "THOMPSONS_RD",
+        "travel_direction": "S",
+        "latitude": -37.78093,
+        "longitude": 145.07733
+      },
+      {
+        "location": "BULLEEN_RD S of EASTERN_FWY_W_BD_RAMPS",
+        "sensor_road": "BULLEEN_RD",
+        "sensor_side": "S",
+        "cross_road": "EASTERN_FWY_W_BD_RAMPS",
+        "travel_direction": "N",
+        "latitude": -37.78267,
+        "longitude": 145.07729
+      },
+      {
+        "location": "OFFRAMP_EASTERN_FWY E of BULLEEN_RD",
+        "sensor_road": "OFFRAMP_EASTERN_FWY",
+        "sensor_side": "E",
+        "cross_road": "BULLEEN_RD",
+        "travel_direction": "W",
+        "latitude": -37.7820873,
+        "longitude": 145.0778256
+      },
+      {
+        "location": "OFFRAMP_EASTERN_FWY W of BULLEEN_RD",
+        "sensor_road": "OFFRAMP_EASTERN_FWY",
+        "sensor_side": "W",
+        "cross_road": "BULLEEN_RD",
+        "travel_direction": "E",
+        "latitude": -37.78127,
+        "longitude": 145.07688
+      }
+    ],
+    "latitude": -37.781739325000004,
+    "longitude": 145.0773314
+  },
+  "2846": {
+    "site_id": "2846",
+    "roads": [
+      "HIGH_ST",
+      "S.E.ARTERIAL",
+      "WILLS_ST"
+    ],
+    "approaches": [
+      {
+        "location": "HIGH_ST E OF S.E.ARTERIAL",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "E",
+        "cross_road": "S.E.ARTERIAL",
+        "travel_direction": "W",
+        "latitude": -37.86152,
+        "longitude": 145.05851
+      },
+      {
+        "location": "HIGH_ST W OF WILLS_ST",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "W",
+        "cross_road": "WILLS_ST",
+        "travel_direction": "E",
+        "latitude": -37.86155,
+        "longitude": 145.05751
+      },
+      {
+        "location": "S.E.ARTERIAL N OF HIGH_ST",
+        "sensor_road": "S.E.ARTERIAL",
+        "sensor_side": "N",
+        "cross_road": "HIGH_ST",
+        "travel_direction": "S",
+        "latitude": -37.8612671,
+        "longitude": 145.058038
+      },
+      {
+        "location": "WILLS_ST NW OF HIGH_ST",
+        "sensor_road": "WILLS_ST",
+        "sensor_side": "NW",
+        "cross_road": "HIGH_ST",
+        "travel_direction": "SE",
+        "latitude": -37.86088,
+        "longitude": 145.05744
+      }
+    ],
+    "latitude": -37.861304275,
+    "longitude": 145.05787450000003
+  },
+  "3001": {
+    "site_id": "3001",
+    "roads": [
+      "BARKERS_RD",
+      "CHURCH_ST",
+      "HIGH_ST"
+    ],
+    "approaches": [
+      {
+        "location": "BARKERS_RD E of HIGH_ST",
+        "sensor_road": "BARKERS_RD",
+        "sensor_side": "E",
+        "cross_road": "HIGH_ST",
+        "travel_direction": "W",
+        "latitude": -37.81469,
+        "longitude": 145.02261
+      },
+      {
+        "location": "BARKERS_RD W of CHURCH_ST",
+        "sensor_road": "BARKERS_RD",
+        "sensor_side": "W",
+        "cross_road": "CHURCH_ST",
+        "travel_direction": "E",
+        "latitude": -37.81457,
+        "longitude": 145.02161
+      },
+      {
+        "location": "CHURCH_ST SW of BARKERS_RD",
+        "sensor_road": "CHURCH_ST",
+        "sensor_side": "SW",
+        "cross_road": "BARKERS_RD",
+        "travel_direction": "NE",
+        "latitude": -37.81495,
+        "longitude": 145.0219
+      },
+      {
+        "location": "HIGH_ST NE of BARKERS_RD",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "NE",
+        "cross_road": "BARKERS_RD",
+        "travel_direction": "SW",
+        "latitude": -37.81441,
+        "longitude": 145.02243
+      }
+    ],
+    "latitude": -37.814655,
+    "longitude": 145.02213749999999
+  },
+  "3002": {
+    "site_id": "3002",
+    "roads": [
+      "BARKERS_RD",
+      "DENMARK_ST",
+      "POWER_ST"
+    ],
+    "approaches": [
+      {
+        "location": "BARKERS_RD E of DENMARK_ST",
+        "sensor_road": "BARKERS_RD",
+        "sensor_side": "E",
+        "cross_road": "DENMARK_ST",
+        "travel_direction": "W",
+        "latitude": -37.81521,
+        "longitude": 145.02706
+      },
+      {
+        "location": "BARKERS_RD W of DENMARK_ST",
+        "sensor_road": "BARKERS_RD",
+        "sensor_side": "W",
+        "cross_road": "DENMARK_ST",
+        "travel_direction": "E",
+        "latitude": -37.8151,
+        "longitude": 145.02608
+      },
+      {
+        "location": "DENMARK_ST N of BARKERS_RD",
+        "sensor_road": "DENMARK_ST",
+        "sensor_side": "N",
+        "cross_road": "BARKERS_RD",
+        "travel_direction": "S",
+        "latitude": -37.81489,
+        "longitude": 145.02663
+      },
+      {
+        "location": "POWER_ST S of BARKERS_RD",
+        "sensor_road": "POWER_ST",
+        "sensor_side": "S",
+        "cross_road": "BARKERS_RD",
+        "travel_direction": "N",
+        "latitude": -37.81545,
+        "longitude": 145.02652
+      }
+    ],
+    "latitude": -37.8151625,
+    "longitude": 145.0265725
+  },
+  "3120": {
+    "site_id": "3120",
+    "roads": [
+      "BURKE_RD",
+      "CANTERBURY_RD",
+      "RATHMINES_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURKE_RD N of CANTERBURY_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "N",
+        "cross_road": "CANTERBURY_RD",
+        "travel_direction": "S",
+        "latitude": -37.82264,
+        "longitude": 145.05734
+      },
+      {
+        "location": "BURKE_RD S of CANTERBURY_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "CANTERBURY_RD",
+        "travel_direction": "N",
+        "latitude": -37.82315,
+        "longitude": 145.05724
+      },
+      {
+        "location": "CANTERBURY_RD E of BURKE_RD",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "E",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "W",
+        "latitude": -37.82295,
+        "longitude": 145.05772999999996
+      },
+      {
+        "location": "RATHMINES_RD W of BURKE_RD",
+        "sensor_road": "RATHMINES_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.82284,
+        "longitude": 145.05684
+      }
+    ],
+    "latitude": -37.822895,
+    "longitude": 145.0572875
+  },
+  "3122": {
+    "site_id": "3122",
+    "roads": [
+      "CANTERBURY_RD",
+      "STANHOPE_GV"
+    ],
+    "approaches": [
+      {
+        "location": "CANTERBURY_RD E of STANHOPE_GV",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "E",
+        "cross_road": "STANHOPE_GV",
+        "travel_direction": "W",
+        "latitude": -37.82379,
+        "longitude": 145.06466
+      },
+      {
+        "location": "CANTERBURY_RD W of STANHOPE_GV",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "W",
+        "cross_road": "STANHOPE_GV",
+        "travel_direction": "E",
+        "latitude": -37.82374,
+        "longitude": 145.06417
+      },
+      {
+        "location": "STANHOPE_GV S of CANTERBURY_RD",
+        "sensor_road": "STANHOPE_GV",
+        "sensor_side": "S",
+        "cross_road": "CANTERBURY_RD",
+        "travel_direction": "N",
+        "latitude": -37.82404,
+        "longitude": 145.06435
+      }
+    ],
+    "latitude": -37.823856666666664,
+    "longitude": 145.06439333333333
+  },
+  "3126": {
+    "site_id": "3126",
+    "roads": [
+      "CANTERBURY_RD",
+      "WARRIGAL_RD"
+    ],
+    "approaches": [
+      {
+        "location": "CANTERBURY_RD E of WARRIGAL_RD",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "E",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "W",
+        "latitude": -37.82778,
+        "longitude": 145.09885
+      },
+      {
+        "location": "CANTERBURY_RD W of WARRIGAL_RD",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "W",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "E",
+        "latitude": -37.82772,
+        "longitude": 145.0983
+      },
+      {
+        "location": "WARRIGAL_RD S of CANTERBURY_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "S",
+        "cross_road": "CANTERBURY_RD",
+        "travel_direction": "N",
+        "latitude": -37.82804,
+        "longitude": 145.09858
+      }
+    ],
+    "latitude": -37.827846666666666,
+    "longitude": 145.09857666666664
+  },
+  "3127": {
+    "site_id": "3127",
+    "roads": [
+      "BALWYN_RD",
+      "CANTERBURY_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BALWYN_RD N of CANTERBURY_RD",
+        "sensor_road": "BALWYN_RD",
+        "sensor_side": "N",
+        "cross_road": "CANTERBURY_RD",
+        "travel_direction": "S",
+        "latitude": -37.82506,
+        "longitude": 145.078
+      },
+      {
+        "location": "CANTERBURY_RD E of BALWYN_RD",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "E",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "W",
+        "latitude": -37.82535,
+        "longitude": 145.07827
+      },
+      {
+        "location": "CANTERBURY_RD W of BALWYN_RD",
+        "sensor_road": "CANTERBURY_RD",
+        "sensor_side": "W",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "E",
+        "latitude": -37.82527,
+        "longitude": 145.07757
+      }
+    ],
+    "latitude": -37.825226666666666,
+    "longitude": 145.07794666666666
+  },
+  "3180": {
+    "site_id": "3180",
+    "roads": [
+      "BALWYN_RD",
+      "DONCASTER_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BALWYN_RD S of DONCASTER_RD",
+        "sensor_road": "BALWYN_RD",
+        "sensor_side": "S",
+        "cross_road": "DONCASTER_RD",
+        "travel_direction": "N",
+        "latitude": -37.79635,
+        "longitude": 145.08352
+      },
+      {
+        "location": "DONCASTER_RD E of BALWYN_RD",
+        "sensor_road": "DONCASTER_RD",
+        "sensor_side": "E",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "W",
+        "latitude": -37.79611,
+        "longitude": 145.08372
+      },
+      {
+        "location": "DONCASTER_RD W of BALWYN_RD",
+        "sensor_road": "DONCASTER_RD",
+        "sensor_side": "W",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "E",
+        "latitude": -37.79618,
+        "longitude": 145.08328
+      }
+    ],
+    "latitude": -37.79621333333333,
+    "longitude": 145.08350666666666
+  },
+  "3662": {
+    "site_id": "3662",
+    "roads": [
+      "DENMARK_ST",
+      "HIGH_ST",
+      "PRINCESS_ST",
+      "STUDLEY PARK_RD"
+    ],
+    "approaches": [
+      {
+        "location": "HIGH_ST NE of PRINCESS_ST",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "NE",
+        "cross_road": "PRINCESS_ST",
+        "travel_direction": "SW",
+        "latitude": -37.80887,
+        "longitude": 145.02793
+      },
+      {
+        "location": "HIGH_ST SW of DENMARK_ST",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "SW",
+        "cross_road": "DENMARK_ST",
+        "travel_direction": "NE",
+        "latitude": -37.80926,
+        "longitude": 145.02729
+      },
+      {
+        "location": "PRINCESS_ST N of HIGH_ST",
+        "sensor_road": "PRINCESS_ST",
+        "sensor_side": "N",
+        "cross_road": "HIGH_ST",
+        "travel_direction": "S",
+        "latitude": -37.80876,
+        "longitude": 145.02757
+      },
+      {
+        "location": "STUDLEY PARK_RD W of PRINCESS_ST",
+        "sensor_road": "STUDLEY PARK_RD",
+        "sensor_side": "W",
+        "cross_road": "PRINCESS_ST",
+        "travel_direction": "E",
+        "latitude": -37.80892,
+        "longitude": 145.02704
+      }
+    ],
+    "latitude": -37.808952500000004,
+    "longitude": 145.02745749999997
+  },
+  "3682": {
+    "site_id": "3682",
+    "roads": [
+      "RIVERSDALE_RD",
+      "WARRIGAL_RD"
+    ],
+    "approaches": [
+      {
+        "location": "RIVERSDALE_RD E OF WARRIGAL_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "E",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "W",
+        "latitude": -37.83755000000001,
+        "longitude": 145.09741
+      },
+      {
+        "location": "RIVERSDALE_RD W OF WARRIGAL_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "W",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "E",
+        "latitude": -37.83741,
+        "longitude": 145.09626
+      },
+      {
+        "location": "WARRIGAL_RD N OF RIVERSDALE_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "N",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "S",
+        "latitude": -37.836949999999995,
+        "longitude": 145.09699
+      },
+      {
+        "location": "WARRIGAL_RD S OF RIVERSDALE_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "S",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "N",
+        "latitude": -37.83799,
+        "longitude": 145.09681
+      }
+    ],
+    "latitude": -37.837475,
+    "longitude": 145.0968675
+  },
+  "3685": {
+    "site_id": "3685",
+    "roads": [
+      "HIGHBURY_RD",
+      "WARRIGAL_RD"
+    ],
+    "approaches": [
+      {
+        "location": "HIGHBURY_RD E of WARRIGAL_RD",
+        "sensor_road": "HIGHBURY_RD",
+        "sensor_side": "E",
+        "cross_road": "WARRIGAL_RD",
+        "travel_direction": "W",
+        "latitude": -37.85489,
+        "longitude": 145.09413
+      },
+      {
+        "location": "WARRIGAL_RD N of HIGHBURY_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "N",
+        "cross_road": "HIGHBURY_RD",
+        "travel_direction": "S",
+        "latitude": -37.85467,
+        "longitude": 145.09384000000003
+      },
+      {
+        "location": "WARRIGAL_RD S of HIGHBURY_RD",
+        "sensor_road": "WARRIGAL_RD",
+        "sensor_side": "S",
+        "cross_road": "HIGHBURY_RD",
+        "travel_direction": "N",
+        "latitude": -37.85513,
+        "longitude": 145.09376
+      }
+    ],
+    "latitude": -37.85489666666667,
+    "longitude": 145.09391000000002
+  },
+  "3804": {
+    "site_id": "3804",
+    "roads": [
+      "RIVERSDALE_RD",
+      "TRAFALGAR_RD"
+    ],
+    "approaches": [
+      {
+        "location": "RIVERSDALE_RD E of TRAFALGAR_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "E",
+        "cross_road": "TRAFALGAR_RD",
+        "travel_direction": "W",
+        "latitude": -37.8337,
+        "longitude": 145.06275
+      },
+      {
+        "location": "RIVERSDALE_RD W of TRAFALGAR_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "W",
+        "cross_road": "TRAFALGAR_RD",
+        "travel_direction": "E",
+        "latitude": -37.83362,
+        "longitude": 145.06202
+      },
+      {
+        "location": "TRAFALGAR_RD N of RIVERSDALE_RD",
+        "sensor_road": "TRAFALGAR_RD",
+        "sensor_side": "N",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "S",
+        "latitude": -37.83331,
+        "longitude": 145.06247
+      },
+      {
+        "location": "TRAFALGAR_RD S of RIVERSDALE_RD",
+        "sensor_road": "TRAFALGAR_RD",
+        "sensor_side": "S",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "N",
+        "latitude": -37.83394,
+        "longitude": 145.06233
+      }
+    ],
+    "latitude": -37.833642499999996,
+    "longitude": 145.0623925
+  },
+  "3812": {
+    "site_id": "3812",
+    "roads": [
+      "CAMBERWELL_RD",
+      "SEYMOUR_GV",
+      "TRAFALGAR_RD"
+    ],
+    "approaches": [
+      {
+        "location": "CAMBERWELL_RD NW of TRAFALGAR_RD",
+        "sensor_road": "CAMBERWELL_RD",
+        "sensor_side": "NW",
+        "cross_road": "TRAFALGAR_RD",
+        "travel_direction": "SE",
+        "latitude": -37.83725,
+        "longitude": 145.06055
+      },
+      {
+        "location": "CAMBERWELL_RD SE of TRAFALGAR_RD",
+        "sensor_road": "CAMBERWELL_RD",
+        "sensor_side": "SE",
+        "cross_road": "TRAFALGAR_RD",
+        "travel_direction": "NW",
+        "latitude": -37.83777,
+        "longitude": 145.06115000000003
+      },
+      {
+        "location": "SEYMOUR_GV W of CAMBERWELL_RD",
+        "sensor_road": "SEYMOUR_GV",
+        "sensor_side": "W",
+        "cross_road": "CAMBERWELL_RD",
+        "travel_direction": "E",
+        "latitude": -37.83756,
+        "longitude": 145.06057
+      },
+      {
+        "location": "TRAFALGAR_RD NE of CAMBERWELL_RD",
+        "sensor_road": "TRAFALGAR_RD",
+        "sensor_side": "NE",
+        "cross_road": "CAMBERWELL_RD",
+        "travel_direction": "SW",
+        "latitude": -37.83738,
+        "longitude": 145.06119
+      }
+    ],
+    "latitude": -37.837489999999995,
+    "longitude": 145.060865
+  },
+  "4030": {
+    "site_id": "4030",
+    "roads": [
+      "BURKE_RD",
+      "DONCASTER_RD",
+      "HIGH_ST",
+      "KILBY_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURKE_RD S of DONCASTER_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "DONCASTER_RD",
+        "travel_direction": "N",
+        "latitude": -37.79561,
+        "longitude": 145.06251
+      },
+      {
+        "location": "HIGH_ST SW of BURKE_RD",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "SW",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "NE",
+        "latitude": -37.79567,
+        "longitude": 145.06111
+      },
+      {
+        "location": "KILBY_RD W of BURKE_RD",
+        "sensor_road": "KILBY_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.79471,
+        "longitude": 145.0612
+      }
+    ],
+    "latitude": -37.79533000000001,
+    "longitude": 145.06160666666668
+  },
+  "4032": {
+    "site_id": "4032",
+    "roads": [
+      "BELMORE_RD",
+      "BURKE_RD",
+      "HARP_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BELMORE_RD E of BURKE_RD",
+        "sensor_road": "BELMORE_RD",
+        "sensor_side": "E",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "W",
+        "latitude": -37.80236,
+        "longitude": 145.06167
+      },
+      {
+        "location": "BURKE_RD N of HARP_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "N",
+        "cross_road": "HARP_RD",
+        "travel_direction": "S",
+        "latitude": -37.80202,
+        "longitude": 145.06127
+      },
+      {
+        "location": "BURKE_RD S of HARP_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "HARP_RD",
+        "travel_direction": "N",
+        "latitude": -37.80256,
+        "longitude": 145.06117
+      },
+      {
+        "location": "HARP_RD W of BURKE_RD",
+        "sensor_road": "HARP_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.80225,
+        "longitude": 145.06081
+      }
+    ],
+    "latitude": -37.802297499999995,
+    "longitude": 145.06123
+  },
+  "4034": {
+    "site_id": "4034",
+    "roads": [
+      "BURKE_RD",
+      "COTHAM_RD",
+      "WHITEHORSE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURKE_RD N OF WHITEHORSE_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "N",
+        "cross_road": "WHITEHORSE_RD",
+        "travel_direction": "S",
+        "latitude": -37.81147,
+        "longitude": 145.05946
+      },
+      {
+        "location": "BURKE_RD S OF WHITEHORSE_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "WHITEHORSE_RD",
+        "travel_direction": "N",
+        "latitude": -37.81216,
+        "longitude": 145.05933
+      },
+      {
+        "location": "COTHAM_RD W OF BURKE_RD",
+        "sensor_road": "COTHAM_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.81184,
+        "longitude": 145.05901
+      },
+      {
+        "location": "WHITEHORSE_RD E OF BURKE_RD",
+        "sensor_road": "WHITEHORSE_RD",
+        "sensor_side": "E",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "W",
+        "latitude": -37.81193,
+        "longitude": 145.05982
+      }
+    ],
+    "latitude": -37.81184999999999,
+    "longitude": 145.059405
+  },
+  "4035": {
+    "site_id": "4035",
+    "roads": [
+      "BARKERS_RD",
+      "BURKE_RD",
+      "MONT ALBERT_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BARKERS_RD W of BURKE_RD",
+        "sensor_road": "BARKERS_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.8188,
+        "longitude": 145.05739
+      },
+      {
+        "location": "BURKE_RD N of MONT ALBERT_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "N",
+        "cross_road": "MONT ALBERT_RD",
+        "travel_direction": "S",
+        "latitude": -37.8172654,
+        "longitude": 145.05836030000003
+      },
+      {
+        "location": "BURKE_RD S of BARKERS_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "BARKERS_RD",
+        "travel_direction": "N",
+        "latitude": -37.81911999999999,
+        "longitude": 145.05801
+      },
+      {
+        "location": "MONT ALBERT_RD E of BURKE_RD",
+        "sensor_road": "MONT ALBERT_RD",
+        "sensor_side": "E",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "W",
+        "latitude": -37.81744,
+        "longitude": 145.05873
+      }
+    ],
+    "latitude": -37.81815635,
+    "longitude": 145.058122575
+  },
+  "4040": {
+    "site_id": "4040",
+    "roads": [
+      "BURKE_RD",
+      "CAMBERWELL_RD",
+      "RIVERSDALE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURKE_RD N of RIVERSDALE_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "N",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "S",
+        "latitude": -37.83256,
+        "longitude": 145.05545
+      },
+      {
+        "location": "BURKE_RD S of RIVERSDALE_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "N",
+        "latitude": -37.83323,
+        "longitude": 145.05532
+      },
+      {
+        "location": "CAMBERWELL_RD NW of BURKE_RD",
+        "sensor_road": "CAMBERWELL_RD",
+        "sensor_side": "NW",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "SE",
+        "latitude": -37.83254,
+        "longitude": 145.05507
+      },
+      {
+        "location": "CAMBERWELL_RD SE of BURKE_RD",
+        "sensor_road": "CAMBERWELL_RD",
+        "sensor_side": "SE",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "NW",
+        "latitude": -37.83312,
+        "longitude": 145.05571
+      },
+      {
+        "location": "RIVERSDALE_RD E of BURKE_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "E",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "W",
+        "latitude": -37.83294,
+        "longitude": 145.05594
+      },
+      {
+        "location": "RIVERSDALE_RD W of BURKE_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.83284,
+        "longitude": 145.05505
+      }
+    ],
+    "latitude": -37.83287166666667,
+    "longitude": 145.05542333333332
+  },
+  "4043": {
+    "site_id": "4043",
+    "roads": [
+      "BURKE_RD",
+      "TOORAK_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURKE_RD N of TOORAK_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "N",
+        "cross_road": "TOORAK_RD",
+        "travel_direction": "S",
+        "latitude": -37.84683,
+        "longitude": 145.05275
+      },
+      {
+        "location": "BURKE_RD S of TOORAK_RD",
+        "sensor_road": "BURKE_RD",
+        "sensor_side": "S",
+        "cross_road": "TOORAK_RD",
+        "travel_direction": "N",
+        "latitude": -37.84741,
+        "longitude": 145.05263
+      },
+      {
+        "location": "TOORAK_RD E of BURKE_RD",
+        "sensor_road": "TOORAK_RD",
+        "sensor_side": "E",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "W",
+        "latitude": -37.84726,
+        "longitude": 145.05308
+      },
+      {
+        "location": "TOORAK_RD W OF BURKE_RD",
+        "sensor_road": "TOORAK_RD",
+        "sensor_side": "W",
+        "cross_road": "BURKE_RD",
+        "travel_direction": "E",
+        "latitude": -37.84714,
+        "longitude": 145.05205
+      }
+    ],
+    "latitude": -37.84716,
+    "longitude": 145.0526275
+  },
+  "4051": {
+    "site_id": "4051",
+    "roads": [
+      "BULLEEN_RD",
+      "DONCASTER_RD",
+      "SEVERN_ST"
+    ],
+    "approaches": [
+      {
+        "location": "DONCASTER_RD E of BULLEEN_RD",
+        "sensor_road": "DONCASTER_RD",
+        "sensor_side": "E",
+        "cross_road": "BULLEEN_RD",
+        "travel_direction": "W",
+        "latitude": -37.79419,
+        "longitude": 145.0696
+      },
+      {
+        "location": "DONCASTER_RD SW of SEVERN_ST",
+        "sensor_road": "DONCASTER_RD",
+        "sensor_side": "SW",
+        "cross_road": "SEVERN_ST",
+        "travel_direction": "NE",
+        "latitude": -37.79406,
+        "longitude": 145.06885
+      },
+      {
+        "location": "SEVERN_ST S of DONCASTER_RD",
+        "sensor_road": "SEVERN_ST",
+        "sensor_side": "S",
+        "cross_road": "DONCASTER_RD",
+        "travel_direction": "N",
+        "latitude": -37.79418,
+        "longitude": 145.06955
+      }
+    ],
+    "latitude": -37.79414333333333,
+    "longitude": 145.06933333333333
+  },
+  "4057": {
+    "site_id": "4057",
+    "roads": [
+      "BALWYN_RD",
+      "BELMORE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BALWYN_RD N OF BELMORE_RD",
+        "sensor_road": "BALWYN_RD",
+        "sensor_side": "N",
+        "cross_road": "BELMORE_RD",
+        "travel_direction": "S",
+        "latitude": -37.80431,
+        "longitude": 145.08197
+      },
+      {
+        "location": "BALWYN_RD S OF BELMORE_RD",
+        "sensor_road": "BALWYN_RD",
+        "sensor_side": "S",
+        "cross_road": "BELMORE_RD",
+        "travel_direction": "N",
+        "latitude": -37.80564,
+        "longitude": 145.08171
+      },
+      {
+        "location": "BELMORE_RD E OF BALWYN_RD",
+        "sensor_road": "BELMORE_RD",
+        "sensor_side": "E",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "W",
+        "latitude": -37.80508,
+        "longitude": 145.08246
+      },
+      {
+        "location": "BELMORE_RD W OF BALWYN_RD",
+        "sensor_road": "BELMORE_RD",
+        "sensor_side": "W",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "E",
+        "latitude": -37.80487,
+        "longitude": 145.08092
+      }
+    ],
+    "latitude": -37.804975,
+    "longitude": 145.081765
+  },
+  "4063": {
+    "site_id": "4063",
+    "roads": [
+      "BALWYN_RD",
+      "WHITEHORSE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BALWYN_RD N OF WHITEHORSE_RD",
+        "sensor_road": "BALWYN_RD",
+        "sensor_side": "N",
+        "cross_road": "WHITEHORSE_RD",
+        "travel_direction": "S",
+        "latitude": -37.81404,
+        "longitude": 145.0801
+      },
+      {
+        "location": "BALWYN_RD S OF WHITEHORSE_RD",
+        "sensor_road": "BALWYN_RD",
+        "sensor_side": "S",
+        "cross_road": "WHITEHORSE_RD",
+        "travel_direction": "N",
+        "latitude": -37.81476,
+        "longitude": 145.07996
+      },
+      {
+        "location": "WHITEHORSE_RD E OF BALWYN_RD",
+        "sensor_road": "WHITEHORSE_RD",
+        "sensor_side": "E",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "W",
+        "latitude": -37.8144,
+        "longitude": 145.08045
+      },
+      {
+        "location": "WHITEHORSE_RD W OF BALWYN_RD",
+        "sensor_road": "WHITEHORSE_RD",
+        "sensor_side": "W",
+        "cross_road": "BALWYN_RD",
+        "travel_direction": "E",
+        "latitude": -37.81429,
+        "longitude": 145.07951
+      }
+    ],
+    "latitude": -37.8143725,
+    "longitude": 145.080005
+  },
+  "4262": {
+    "site_id": "4262",
+    "roads": [
+      "BRIDGE_RD",
+      "BURWOOD_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BRIDGE_RD SW of BURWOOD_RD",
+        "sensor_road": "BRIDGE_RD",
+        "sensor_side": "SW",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "NE",
+        "latitude": -37.82155,
+        "longitude": 145.01503
+      }
+    ],
+    "latitude": -37.82155,
+    "longitude": 145.01503
+  },
+  "4263": {
+    "site_id": "4263",
+    "roads": [
+      "BURWOOD_RD",
+      "POWER_ST"
+    ],
+    "approaches": [
+      {
+        "location": "BURWOOD_RD E of POWER_ST",
+        "sensor_road": "BURWOOD_RD",
+        "sensor_side": "E",
+        "cross_road": "POWER_ST",
+        "travel_direction": "W",
+        "latitude": -37.82313,
+        "longitude": 145.02565
+      },
+      {
+        "location": "BURWOOD_RD W of POWER_ST",
+        "sensor_road": "BURWOOD_RD",
+        "sensor_side": "W",
+        "cross_road": "POWER_ST",
+        "travel_direction": "E",
+        "latitude": -37.82295,
+        "longitude": 145.02402
+      },
+      {
+        "location": "POWER_ST N of BURWOOD_RD",
+        "sensor_road": "POWER_ST",
+        "sensor_side": "N",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "S",
+        "latitude": -37.8228462,
+        "longitude": 145.0251292
+      },
+      {
+        "location": "POWER_ST S of BURWOOD_RD",
+        "sensor_road": "POWER_ST",
+        "sensor_side": "S",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "N",
+        "latitude": -37.8232985,
+        "longitude": 145.0250328
+      }
+    ],
+    "latitude": -37.823056175,
+    "longitude": 145.024958
+  },
+  "4264": {
+    "site_id": "4264",
+    "roads": [
+      "BURWOOD_RD",
+      "GLENFERRIE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "BURWOOD_RD E of GLENFERRIE_RD",
+        "sensor_road": "BURWOOD_RD",
+        "sensor_side": "E",
+        "cross_road": "GLENFERRIE_RD",
+        "travel_direction": "W",
+        "latitude": -37.82416,
+        "longitude": 145.03445
+      },
+      {
+        "location": "BURWOOD_RD W of GLENFERRIE_RD",
+        "sensor_road": "BURWOOD_RD",
+        "sensor_side": "W",
+        "cross_road": "GLENFERRIE_RD",
+        "travel_direction": "E",
+        "latitude": -37.82405,
+        "longitude": 145.03349
+      },
+      {
+        "location": "GLENFERRIE_RD N of BURWOOD_RD",
+        "sensor_road": "GLENFERRIE_RD",
+        "sensor_side": "N",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "S",
+        "latitude": -37.82389,
+        "longitude": 145.03409
+      },
+      {
+        "location": "GLENFERRIE_RD S of BURWOOD_RD",
+        "sensor_road": "GLENFERRIE_RD",
+        "sensor_side": "S",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "N",
+        "latitude": -37.82441,
+        "longitude": 145.03399
+      }
+    ],
+    "latitude": -37.8241275,
+    "longitude": 145.034005
+  },
+  "4266": {
+    "site_id": "4266",
+    "roads": [
+      "AUBURN_RD",
+      "BURWOOD_RD"
+    ],
+    "approaches": [
+      {
+        "location": "AUBURN_RD N of BURWOOD_RD",
+        "sensor_road": "AUBURN_RD",
+        "sensor_side": "N",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "S",
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      {
+        "location": "AUBURN_RD S of BURWOOD_RD",
+        "sensor_road": "AUBURN_RD",
+        "sensor_side": "S",
+        "cross_road": "BURWOOD_RD",
+        "travel_direction": "N",
+        "latitude": -37.82542,
+        "longitude": 145.04346
+      },
+      {
+        "location": "BURWOOD_RD E of AUBURN_RD",
+        "sensor_road": "BURWOOD_RD",
+        "sensor_side": "E",
+        "cross_road": "AUBURN_RD",
+        "travel_direction": "W",
+        "latitude": -37.82529,
+        "longitude": 145.04387
+      },
+      {
+        "location": "BURWOOD_RD W of AUBURN_RD",
+        "sensor_road": "BURWOOD_RD",
+        "sensor_side": "W",
+        "cross_road": "AUBURN_RD",
+        "travel_direction": "E",
+        "latitude": -37.82518,
+        "longitude": 145.04301
+      }
+    ],
+    "latitude": -37.82529666666667,
+    "longitude": 145.04344666666668
+  },
+  "4270": {
+    "site_id": "4270",
+    "roads": [
+      "GLENFERRIE_RD",
+      "RIVERSDALE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "GLENFERRIE_RD N of RIVERSDALE_RD",
+        "sensor_road": "GLENFERRIE_RD",
+        "sensor_side": "N",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "S",
+        "latitude": -37.82951,
+        "longitude": 145.03304
+      },
+      {
+        "location": "GLENFERRIE_RD S of RIVERSDALE_RD",
+        "sensor_road": "GLENFERRIE_RD",
+        "sensor_side": "S",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "N",
+        "latitude": -37.83095,
+        "longitude": 145.03278000000003
+      },
+      {
+        "location": "RIVERSDALE_RD E of GLENFERRIE_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "E",
+        "cross_road": "GLENFERRIE_RD",
+        "travel_direction": "W",
+        "latitude": -37.8303,
+        "longitude": 145.03336
+      },
+      {
+        "location": "RIVERSDALE_RD W of GLENFERRIE_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "W",
+        "cross_road": "GLENFERRIE_RD",
+        "travel_direction": "E",
+        "latitude": -37.83015,
+        "longitude": 145.03208
+      }
+    ],
+    "latitude": -37.8302275,
+    "longitude": 145.03281500000003
+  },
+  "4272": {
+    "site_id": "4272",
+    "roads": [
+      "RIVERSDALE_RD",
+      "TOORONGA_RD"
+    ],
+    "approaches": [
+      {
+        "location": "RIVERSDALE_RD E of TOORONGA_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "E",
+        "cross_road": "TOORONGA_RD",
+        "travel_direction": "W",
+        "latitude": -37.83186,
+        "longitude": 145.04668
+      },
+      {
+        "location": "RIVERSDALE_RD W of TOORONGA_RD",
+        "sensor_road": "RIVERSDALE_RD",
+        "sensor_side": "W",
+        "cross_road": "TOORONGA_RD",
+        "travel_direction": "E",
+        "latitude": -37.8318,
+        "longitude": 145.04614
+      },
+      {
+        "location": "TOORONGA_RD S of RIVERSDALE_RD",
+        "sensor_road": "TOORONGA_RD",
+        "sensor_side": "S",
+        "cross_road": "RIVERSDALE_RD",
+        "travel_direction": "N",
+        "latitude": -37.83199,
+        "longitude": 145.04636
+      }
+    ],
+    "latitude": -37.83188333333333,
+    "longitude": 145.04639333333333
+  },
+  "4273": {
+    "site_id": "4273",
+    "roads": [
+      "TOORAK_RD",
+      "TOORONGA_RD"
+    ],
+    "approaches": [
+      {
+        "location": "TOORAK_RD E of TOORONGA_RD",
+        "sensor_road": "TOORAK_RD",
+        "sensor_side": "E",
+        "cross_road": "TOORONGA_RD",
+        "travel_direction": "W",
+        "latitude": -37.84686,
+        "longitude": 145.04508
+      },
+      {
+        "location": "TOORONGA_RD N of TOORAK_RD",
+        "sensor_road": "TOORONGA_RD",
+        "sensor_side": "N",
+        "cross_road": "TOORAK_RD",
+        "travel_direction": "S",
+        "latitude": -37.84632,
+        "longitude": 145.04378
+      }
+    ],
+    "latitude": -37.84659,
+    "longitude": 145.04443
+  },
+  "4321": {
+    "site_id": "4321",
+    "roads": [
+      "HARP_RD",
+      "HARP_ST",
+      "HIGH_ST",
+      "VALERIE_ST"
+    ],
+    "approaches": [
+      {
+        "location": "HARP_RD E OF HIGH_ST",
+        "sensor_road": "HARP_RD",
+        "sensor_side": "E",
+        "cross_road": "HIGH_ST",
+        "travel_direction": "W",
+        "latitude": -37.80086,
+        "longitude": 145.04962
+      },
+      {
+        "location": "HIGH_ST NE OF HARP_ST",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "NE",
+        "cross_road": "HARP_ST",
+        "travel_direction": "SW",
+        "latitude": -37.800776,
+        "longitude": 145.0494611
+      },
+      {
+        "location": "HIGH_ST SW OF HARP_ST",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "SW",
+        "cross_road": "HARP_ST",
+        "travel_direction": "NE",
+        "latitude": -37.8010857,
+        "longitude": 145.048755
+      },
+      {
+        "location": "VALERIE_ST W OF HIGH_ST",
+        "sensor_road": "VALERIE_ST",
+        "sensor_side": "W",
+        "cross_road": "HIGH_ST",
+        "travel_direction": "E",
+        "latitude": -37.80063,
+        "longitude": 145.04864
+      }
+    ],
+    "latitude": -37.800837924999996,
+    "longitude": 145.049119025
+  },
+  "4324": {
+    "site_id": "4324",
+    "roads": [
+      "COTHAM_RD",
+      "GLENFERRIE_RD"
+    ],
+    "approaches": [
+      {
+        "location": "COTHAM_RD E OF GLENFERRIE_RD",
+        "sensor_road": "COTHAM_RD",
+        "sensor_side": "E",
+        "cross_road": "GLENFERRIE_RD",
+        "travel_direction": "W",
+        "latitude": -37.809274,
+        "longitude": 145.037306
+      },
+      {
+        "location": "COTHAM_RD W OF GLENFERRIE_RD",
+        "sensor_road": "COTHAM_RD",
+        "sensor_side": "W",
+        "cross_road": "GLENFERRIE_RD",
+        "travel_direction": "E",
+        "latitude": -37.809176,
+        "longitude": 145.036452
+      },
+      {
+        "location": "GLENFERRIE_RD S OF COTHAM_RD",
+        "sensor_road": "GLENFERRIE_RD",
+        "sensor_side": "S",
+        "cross_road": "COTHAM_RD",
+        "travel_direction": "N",
+        "latitude": -37.809547,
+        "longitude": 145.036785
+      }
+    ],
+    "latitude": -37.80933233333334,
+    "longitude": 145.03684766666666
+  },
+  "4335": {
+    "site_id": "4335",
+    "roads": [
+      "CHARLES_ST",
+      "HIGH_ST"
+    ],
+    "approaches": [
+      {
+        "location": "HIGH_ST NE of CHARLES_ST",
+        "sensor_road": "HIGH_ST",
+        "sensor_side": "NE",
+        "cross_road": "CHARLES_ST",
+        "travel_direction": "SW",
+        "latitude": -37.806215,
+        "longitude": 145.03525
+      }
+    ],
+    "latitude": -37.806215,
+    "longitude": 145.03525
+  },
+  "4812": {
+    "site_id": "4812",
+    "roads": [
+      "MADDEN_GV",
+      "SWAN_ST"
+    ],
+    "approaches": [
+      {
+        "location": "MADDEN_GV S OF SWAN_ST",
+        "sensor_road": "MADDEN_GV",
+        "sensor_side": "S",
+        "cross_road": "SWAN_ST",
+        "travel_direction": "N",
+        "latitude": -37.82912,
+        "longitude": 145.01576
+      },
+      {
+        "location": "SWAN_ST NE of MADDEN_GV",
+        "sensor_road": "SWAN_ST",
+        "sensor_side": "NE",
+        "cross_road": "MADDEN_GV",
+        "travel_direction": "SW",
+        "latitude": -37.82859,
+        "longitude": 145.01644
+      },
+      {
+        "location": "SWAN_ST SW of MADDEN_GV",
+        "sensor_road": "SWAN_ST",
+        "sensor_side": "SW",
+        "cross_road": "MADDEN_GV",
+        "travel_direction": "NE",
+        "latitude": -37.82903,
+        "longitude": 145.01456
+      }
+    ],
+    "latitude": -37.82891333333334,
+    "longitude": 145.01558666666665
+  },
+  "4821": {
+    "site_id": "4821",
+    "roads": [
+      "BURNLEY_ST",
+      "VICTORIA_ST",
+      "WALMER_ST"
+    ],
+    "approaches": [
+      {
+        "location": "BURNLEY_ST S OF VICTORIA_ST",
+        "sensor_road": "BURNLEY_ST",
+        "sensor_side": "S",
+        "cross_road": "VICTORIA_ST",
+        "travel_direction": "N",
+        "latitude": -37.81312,
+        "longitude": 145.00844
+      },
+      {
+        "location": "VICTORIA_ST E OF BURNLEY_ST",
+        "sensor_road": "VICTORIA_ST",
+        "sensor_side": "E",
+        "cross_road": "BURNLEY_ST",
+        "travel_direction": "W",
+        "latitude": -37.81293,
+        "longitude": 145.00865
+      },
+      {
+        "location": "VICTORIA_ST W OF BURNLEY_ST",
+        "sensor_road": "VICTORIA_ST",
+        "sensor_side": "W",
+        "cross_road": "BURNLEY_ST",
+        "travel_direction": "E",
+        "latitude": -37.81296,
+        "longitude": 145.0083
+      },
+      {
+        "location": "WALMER_ST N OF VICTORIA_ST",
+        "sensor_road": "WALMER_ST",
+        "sensor_side": "N",
+        "cross_road": "VICTORIA_ST",
+        "travel_direction": "S",
+        "latitude": -37.81285,
+        "longitude": 145.00849
+      }
+    ],
+    "latitude": -37.812965,
+    "longitude": 145.00847
+  }
+}

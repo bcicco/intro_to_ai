@@ -2,8 +2,8 @@ from symtable import Class
 import sys
 import math
 import heapq
-from models import Problem, SearchNode
-from helpers import parse_problem
+from assignment1.models import Problem, SearchNode
+from assignment1.helpers import parse_problem
 
 
 class DFSFrontier:
@@ -38,22 +38,23 @@ class BFSFrontier:
 
     def __len__(self) -> int:
         return len(self._queue)
-    
+
+
 class GBFSFrontier:
     def __init__(self):
         self._heap: list[tuple[float, int, SearchNode]] = []
         self._counter = 0
-    
+
     def push(self, priority: float, node: SearchNode) -> None:
         heapq.heappush(self._heap, (priority, self._counter, node))
         self._counter += 1
-    
+
     def pop(self) -> SearchNode:
         return heapq.heappop(self._heap)[2]
-    
+
     def is_empty(self) -> bool:
         return len(self._heap) == 0
-    
+
     def _len__(self) -> int:
         return len(self._heap)
 
@@ -156,17 +157,19 @@ def gbfs(problem: Problem) -> tuple[list[int], float, int] | None:
 
         if current.node_id in destinations:
             return current.path, current.cost, nodes_created
-        
+
         node = node_map[current.node_id]
 
         for edge in sorted(node.edges, key=lambda e: e.end_node_id):
             if edge.end_node_id not in seen:
-                child= SearchNode(
+                child = SearchNode(
                     node_id=edge.end_node_id,
                     path=current.path + [edge.end_node_id],
                     cost=current.cost + edge.cost,
                 )
-                frontier.push(heuristic(edge.end_node_id, problem.destinations, node_map), child)
+                frontier.push(
+                    heuristic(edge.end_node_id, problem.destinations, node_map), child
+                )
                 seen.add(edge.end_node_id)
                 nodes_created += 1
     return None

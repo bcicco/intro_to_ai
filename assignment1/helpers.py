@@ -1,7 +1,7 @@
 import math
 from collections import defaultdict
 
-from models import Problem, Node, Edge
+from assignment1.models import Problem, Node, Edge
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
@@ -129,7 +129,10 @@ def visualise(
                 mx += perp_scale * (-uy)
                 my += perp_scale * ux
             ax.text(
-                mx, my, str(edge.cost), fontsize=8,
+                mx,
+                my,
+                str(edge.cost),
+                fontsize=8,
                 color="darkorange" if on_path else "dimgray",
                 ha="center",
             )
@@ -149,19 +152,25 @@ def visualise(
         circle = plt.Circle((x, y), 0.2, color=color, zorder=3)
         ax.add_patch(circle)
         ax.text(
-            x, y, str(node.id),
-            fontsize=10, ha="center", va="center",
-            color=text_color, fontweight="bold", zorder=4,
+            x,
+            y,
+            str(node.id),
+            fontsize=10,
+            ha="center",
+            va="center",
+            color=text_color,
+            fontweight="bold",
+            zorder=4,
         )
 
     legend = [
         mpatches.Patch(color="limegreen", label=f"Origin ({problem.origin})"),
-        mpatches.Patch(color="tomato",    label=f"Destinations {problem.destinations}"),
+        mpatches.Patch(color="tomato", label=f"Destinations {problem.destinations}"),
         mpatches.Patch(color="steelblue", label="Node"),
     ]
     if path:
-        legend.append(mpatches.Patch(color="gold",       label="On path"))
-        legend.append(mpatches.Patch(color="darkorange",  label="Path edge"))
+        legend.append(mpatches.Patch(color="gold", label="On path"))
+        legend.append(mpatches.Patch(color="darkorange", label="Path edge"))
     ax.legend(handles=legend, loc="upper left", fontsize=7)
 
     ax.set_title(title or "Pathfinding Problem")

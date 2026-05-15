@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9025053910718dda4ea7acf7b2f145b4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; top: 12px; left: 56px; z-index: 1000;
+        background: white; padding: 8px 14px; border-radius: 6px;
+        border: 1px solid #bbb; font-family: sans-serif; font-size: 14px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,.2);
+    ">
+        <b>Boroondara SCATS Graph</b> &mdash; 36 sites, 47 edges
+    </div>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 56px; z-index: 1000;
+        background: white; padding: 8px 14px; border-radius: 6px;
+        border: 1px solid #bbb; font-family: sans-serif; font-size: 12px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,.2);
+    ">
+        <span style="color:blue; font-size:16px;">&#9679;</span> SCATS site &nbsp;&nbsp;
+        <span style="color:grey; font-size:16px;">&#9135;</span> Road segment
+    </div>
+    
+    
+            <div class="folium-map" id="map_9025053910718dda4ea7acf7b2f145b4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9025053910718dda4ea7acf7b2f145b4 = L.map(
+                "map_9025053910718dda4ea7acf7b2f145b4",
+                {
+                    center: [-37.82101669666667, 145.056233690625],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fe21b9ca994b26b2b2b26b2cecc5a525 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fe21b9ca994b26b2b2b26b2cecc5a525.addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            var poly_line_9b55b747ca81b12c0b81d7f634475b14 = L.polyline(
+                [[-37.8673025, 145.0915075], [-37.85489666666667, 145.09391000000002]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_9b55b747ca81b12c0b81d7f634475b14.bindTooltip(
+                `<div>
+                     0970 → 3685 (1.40 km via WARRIGAL_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3ca05cac068d5f43a591aa15234ea011 = L.polyline(
+                [[-37.851923174999996, 145.094323925], [-37.837475, 145.0968675]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_3ca05cac068d5f43a591aa15234ea011.bindTooltip(
+                `<div>
+                     2000 → 3682 (1.62 km via WARRIGAL_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ca3b526b553838ec67ffd8f7eb008de8 = L.polyline(
+                [[-37.814655, 145.02213749999999], [-37.8151625, 145.0265725]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_ca3b526b553838ec67ffd8f7eb008de8.bindTooltip(
+                `<div>
+                     3001 → 3002 (0.39 km via BARKERS_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2057d29d9576a0886732d97fe2d32b19 = L.polyline(
+                [[-37.814655, 145.02213749999999], [-37.808952500000004, 145.02745749999997]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_2057d29d9576a0886732d97fe2d32b19.bindTooltip(
+                `<div>
+                     3001 → 3662 (0.79 km via HIGH_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7f66beb7f4080c73582d0a30a87f9875 = L.polyline(
+                [[-37.8151625, 145.0265725], [-37.808952500000004, 145.02745749999997]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_7f66beb7f4080c73582d0a30a87f9875.bindTooltip(
+                `<div>
+                     3002 → 3662 (0.69 km via DENMARK_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1a02f97f53233e9a859139e9335c2cf1 = L.polyline(
+                [[-37.8151625, 145.0265725], [-37.81815635, 145.058122575]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_1a02f97f53233e9a859139e9335c2cf1.bindTooltip(
+                `<div>
+                     3002 → 4035 (2.79 km via BARKERS_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cff40587efaf882ecb41fd3d0b825fba = L.polyline(
+                [[-37.822895, 145.0572875], [-37.823856666666664, 145.06439333333333]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_cff40587efaf882ecb41fd3d0b825fba.bindTooltip(
+                `<div>
+                     3120 → 3122 (0.63 km via CANTERBURY_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2fb3ee74eeaef1d74214a57ec4e29677 = L.polyline(
+                [[-37.822895, 145.0572875], [-37.81815635, 145.058122575]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_2fb3ee74eeaef1d74214a57ec4e29677.bindTooltip(
+                `<div>
+                     3120 → 4035 (0.53 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d117b3ce7d72a79594b47981829c6b0d = L.polyline(
+                [[-37.823856666666664, 145.06439333333333], [-37.825226666666666, 145.07794666666666]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_d117b3ce7d72a79594b47981829c6b0d.bindTooltip(
+                `<div>
+                     3122 → 3127 (1.20 km via CANTERBURY_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fb121822b8132a3b5b60ad5c9b3d4c5b = L.polyline(
+                [[-37.825226666666666, 145.07794666666666], [-37.827846666666666, 145.09857666666664]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_fb121822b8132a3b5b60ad5c9b3d4c5b.bindTooltip(
+                `<div>
+                     3127 → 3126 (1.83 km via CANTERBURY_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e91ed3b9c22292dcea51d6ead6c05abf = L.polyline(
+                [[-37.825226666666666, 145.07794666666666], [-37.8143725, 145.080005]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_e91ed3b9c22292dcea51d6ead6c05abf.bindTooltip(
+                `<div>
+                     3127 → 4063 (1.22 km via BALWYN_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3c3a6821f9e6eb6333e4672df68a6a1b = L.polyline(
+                [[-37.808952500000004, 145.02745749999997], [-37.794785000000005, 145.03046]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_3c3a6821f9e6eb6333e4672df68a6a1b.bindTooltip(
+                `<div>
+                     3662 → 2820 (1.60 km via PRINCESS_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cf619421bc179dce9948addf463a71a4 = L.polyline(
+                [[-37.808952500000004, 145.02745749999997], [-37.806215, 145.03525]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_cf619421bc179dce9948addf463a71a4.bindTooltip(
+                `<div>
+                     3662 → 4335 (0.75 km via HIGH_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2059273835464db53b9fa0fdcd518882 = L.polyline(
+                [[-37.837475, 145.0968675], [-37.827846666666666, 145.09857666666664]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_2059273835464db53b9fa0fdcd518882.bindTooltip(
+                `<div>
+                     3682 → 3126 (1.08 km via WARRIGAL_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_67bd6dba5331ee02f2a32a38b67f763b = L.polyline(
+                [[-37.85489666666667, 145.09391000000002], [-37.851923174999996, 145.094323925]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_67bd6dba5331ee02f2a32a38b67f763b.bindTooltip(
+                `<div>
+                     3685 → 2000 (0.33 km via WARRIGAL_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8a568c7d0fb3eea15a0227275a2dd6b2 = L.polyline(
+                [[-37.833642499999996, 145.0623925], [-37.837475, 145.0968675]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_8a568c7d0fb3eea15a0227275a2dd6b2.bindTooltip(
+                `<div>
+                     3804 → 3682 (3.06 km via RIVERSDALE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ac133a31f1572b9541b7b941658c4652 = L.polyline(
+                [[-37.837489999999995, 145.060865], [-37.833642499999996, 145.0623925]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_ac133a31f1572b9541b7b941658c4652.bindTooltip(
+                `<div>
+                     3812 → 3804 (0.45 km via TRAFALGAR_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b4265768fe7f991ca5a4592b14395936 = L.polyline(
+                [[-37.79533000000001, 145.06160666666668], [-37.78661, 145.06202]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_b4265768fe7f991ca5a4592b14395936.bindTooltip(
+                `<div>
+                     4030 → 2825 (0.97 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d1ebfdb3b37171e1a83c65814fc8636c = L.polyline(
+                [[-37.79533000000001, 145.06160666666668], [-37.79414333333333, 145.06933333333333]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_d1ebfdb3b37171e1a83c65814fc8636c.bindTooltip(
+                `<div>
+                     4030 → 4051 (0.69 km via DONCASTER_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_db372730f44edfe2f63b3ad43f0c7e6d = L.polyline(
+                [[-37.802297499999995, 145.06123], [-37.79533000000001, 145.06160666666668]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_db372730f44edfe2f63b3ad43f0c7e6d.bindTooltip(
+                `<div>
+                     4032 → 4030 (0.78 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_80ebf77e8f658e12238e906b0d312c1f = L.polyline(
+                [[-37.802297499999995, 145.06123], [-37.804975, 145.081765]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_80ebf77e8f658e12238e906b0d312c1f.bindTooltip(
+                `<div>
+                     4032 → 4057 (1.83 km via BELMORE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_db1e5f28d114a9f20f26399cd67c0e78 = L.polyline(
+                [[-37.81184999999999, 145.059405], [-37.802297499999995, 145.06123]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_db1e5f28d114a9f20f26399cd67c0e78.bindTooltip(
+                `<div>
+                     4034 → 4032 (1.07 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8017b3034ddad44d3c1d179aa79babae = L.polyline(
+                [[-37.81184999999999, 145.059405], [-37.8143725, 145.080005]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_8017b3034ddad44d3c1d179aa79babae.bindTooltip(
+                `<div>
+                     4034 → 4063 (1.83 km via WHITEHORSE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c7c6c1cfa6e1de6996d38d545c0e5ffd = L.polyline(
+                [[-37.81815635, 145.058122575], [-37.81184999999999, 145.059405]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_c7c6c1cfa6e1de6996d38d545c0e5ffd.bindTooltip(
+                `<div>
+                     4035 → 4034 (0.71 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9b45e96315cc810ccd9043da223914c2 = L.polyline(
+                [[-37.83287166666667, 145.05542333333332], [-37.822895, 145.0572875]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_9b45e96315cc810ccd9043da223914c2.bindTooltip(
+                `<div>
+                     4040 → 3120 (1.12 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f85b3373501b8902b6b83fac4cbce446 = L.polyline(
+                [[-37.83287166666667, 145.05542333333332], [-37.833642499999996, 145.0623925]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_f85b3373501b8902b6b83fac4cbce446.bindTooltip(
+                `<div>
+                     4040 → 3804 (0.62 km via RIVERSDALE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6ce88a26cfe294c7e1bd2a71a988b9f0 = L.polyline(
+                [[-37.83287166666667, 145.05542333333332], [-37.837489999999995, 145.060865]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_6ce88a26cfe294c7e1bd2a71a988b9f0.bindTooltip(
+                `<div>
+                     4040 → 3812 (0.70 km via CAMBERWELL_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9a475742b04b810dd801a340bc47e0b6 = L.polyline(
+                [[-37.84716, 145.0526275], [-37.851923174999996, 145.094323925]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_9a475742b04b810dd801a340bc47e0b6.bindTooltip(
+                `<div>
+                     4043 → 2000 (3.70 km via TOORAK_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fbb35f314da45841c02e481496848686 = L.polyline(
+                [[-37.84716, 145.0526275], [-37.83287166666667, 145.05542333333332]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_fbb35f314da45841c02e481496848686.bindTooltip(
+                `<div>
+                     4043 → 4040 (1.61 km via BURKE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a99e8ab67142322013ca7053cd0c1849 = L.polyline(
+                [[-37.79414333333333, 145.06933333333333], [-37.781739325000004, 145.0773314]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_a99e8ab67142322013ca7053cd0c1849.bindTooltip(
+                `<div>
+                     4051 → 2827 (1.55 km via BULLEEN_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0f7ffaa02c43c4aa7656f58498bb46ed = L.polyline(
+                [[-37.79414333333333, 145.06933333333333], [-37.79621333333333, 145.08350666666666]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_0f7ffaa02c43c4aa7656f58498bb46ed.bindTooltip(
+                `<div>
+                     4051 → 3180 (1.27 km via DONCASTER_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ff53c0b2bad288653e8d4f31d8be5f5e = L.polyline(
+                [[-37.804975, 145.081765], [-37.79621333333333, 145.08350666666666]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_ff53c0b2bad288653e8d4f31d8be5f5e.bindTooltip(
+                `<div>
+                     4057 → 3180 (0.99 km via BALWYN_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9735cb3255d944bb44e499911d664859 = L.polyline(
+                [[-37.8143725, 145.080005], [-37.804975, 145.081765]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_9735cb3255d944bb44e499911d664859.bindTooltip(
+                `<div>
+                     4063 → 4057 (1.06 km via BALWYN_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d02510a99654a4b2b8c07e56aa6456d1 = L.polyline(
+                [[-37.82155, 145.01503], [-37.823056175, 145.024958]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_d02510a99654a4b2b8c07e56aa6456d1.bindTooltip(
+                `<div>
+                     4262 → 4263 (0.89 km via BURWOOD_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a102b3afa1bf1b914a0ea8f7be914550 = L.polyline(
+                [[-37.823056175, 145.024958], [-37.8151625, 145.0265725]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_a102b3afa1bf1b914a0ea8f7be914550.bindTooltip(
+                `<div>
+                     4263 → 3002 (0.89 km via POWER_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_693eac96beb588f4c85909a80141f550 = L.polyline(
+                [[-37.823056175, 145.024958], [-37.8241275, 145.034005]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_693eac96beb588f4c85909a80141f550.bindTooltip(
+                `<div>
+                     4263 → 4264 (0.80 km via BURWOOD_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_23fd7fa2b14947006c9c6fdba753247b = L.polyline(
+                [[-37.8241275, 145.034005], [-37.82529666666667, 145.04344666666668]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_23fd7fa2b14947006c9c6fdba753247b.bindTooltip(
+                `<div>
+                     4264 → 4266 (0.84 km via BURWOOD_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9a8d18838c62e13c8af632ac76bc9875 = L.polyline(
+                [[-37.8241275, 145.034005], [-37.80933233333334, 145.03684766666666]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_9a8d18838c62e13c8af632ac76bc9875.bindTooltip(
+                `<div>
+                     4264 → 4324 (1.66 km via GLENFERRIE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_eba74bbf6e974d008a993748e54b105c = L.polyline(
+                [[-37.8302275, 145.03281500000003], [-37.8241275, 145.034005]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_eba74bbf6e974d008a993748e54b105c.bindTooltip(
+                `<div>
+                     4270 → 4264 (0.69 km via GLENFERRIE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9e65a93ac66cd99c00212ef4eee728ca = L.polyline(
+                [[-37.8302275, 145.03281500000003], [-37.83188333333333, 145.04639333333333]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_9e65a93ac66cd99c00212ef4eee728ca.bindTooltip(
+                `<div>
+                     4270 → 4272 (1.21 km via RIVERSDALE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_154b4838bb5ecb023c0ca907158e7442 = L.polyline(
+                [[-37.83188333333333, 145.04639333333333], [-37.83287166666667, 145.05542333333332]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_154b4838bb5ecb023c0ca907158e7442.bindTooltip(
+                `<div>
+                     4272 → 4040 (0.80 km via RIVERSDALE_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_75668eff0cd4b3fdf83c59f76f41a7c5 = L.polyline(
+                [[-37.84659, 145.04443], [-37.84716, 145.0526275]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_75668eff0cd4b3fdf83c59f76f41a7c5.bindTooltip(
+                `<div>
+                     4273 → 4043 (0.72 km via TOORAK_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_abb6a8c08c305bbe087beaeb426134bc = L.polyline(
+                [[-37.84659, 145.04443], [-37.83188333333333, 145.04639333333333]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_abb6a8c08c305bbe087beaeb426134bc.bindTooltip(
+                `<div>
+                     4273 → 4272 (1.64 km via TOORONGA_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d3092eac60e4aa0491515617484843d9 = L.polyline(
+                [[-37.800837924999996, 145.049119025], [-37.79533000000001, 145.06160666666668]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_d3092eac60e4aa0491515617484843d9.bindTooltip(
+                `<div>
+                     4321 → 4030 (1.26 km via HIGH_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fcb434ff870dbf246cae9933df9f88b8 = L.polyline(
+                [[-37.800837924999996, 145.049119025], [-37.802297499999995, 145.06123]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_fcb434ff870dbf246cae9933df9f88b8.bindTooltip(
+                `<div>
+                     4321 → 4032 (1.08 km via HARP_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_dca42a3955842e57821adb44394cbc3a = L.polyline(
+                [[-37.80933233333334, 145.03684766666666], [-37.81184999999999, 145.059405]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_dca42a3955842e57821adb44394cbc3a.bindTooltip(
+                `<div>
+                     4324 → 4034 (2.00 km via COTHAM_RD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_52d8dce99c097d3e9f3a4f2dadde0458 = L.polyline(
+                [[-37.806215, 145.03525], [-37.800837924999996, 145.049119025]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+            poly_line_52d8dce99c097d3e9f3a4f2dadde0458.bindTooltip(
+                `<div>
+                     4335 → 4321 (1.36 km via HIGH_ST)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a12752f09f3f3fea4d56f154293fda60 = L.circleMarker(
+                [-37.8673025, 145.0915075],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_cb3c728a0996b4acf3b50e78d336f45c = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_586c166a247cb2f441fcbc3d8f808345 = $(`<div id="html_586c166a247cb2f441fcbc3d8f808345" style="width: 100.0%; height: 100.0%;"><b>Site 0970</b><br>Roads: HIGH STREET_RD, WARRIGAL_RD<br>Approaches: 4</div>`)[0];
+                popup_cb3c728a0996b4acf3b50e78d336f45c.setContent(html_586c166a247cb2f441fcbc3d8f808345);
+            
+        
+
+        circle_marker_a12752f09f3f3fea4d56f154293fda60.bindPopup(popup_cb3c728a0996b4acf3b50e78d336f45c)
+        ;
+
+        
+    
+    
+            circle_marker_a12752f09f3f3fea4d56f154293fda60.bindTooltip(
+                `<div>
+                     0970
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1696314148a163fd6d86a693abcd32d4 = L.circleMarker(
+                [-37.851923174999996, 145.094323925],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_0971d1e0f8dc290c60097b0bbc0e4e8d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_380e5ec61c40f35a8e5bd28973b36ac6 = $(`<div id="html_380e5ec61c40f35a8e5bd28973b36ac6" style="width: 100.0%; height: 100.0%;"><b>Site 2000</b><br>Roads: BURWOOD_HWY, TOORAK_RD, WARRIGAL_RD<br>Approaches: 4</div>`)[0];
+                popup_0971d1e0f8dc290c60097b0bbc0e4e8d.setContent(html_380e5ec61c40f35a8e5bd28973b36ac6);
+            
+        
+
+        circle_marker_1696314148a163fd6d86a693abcd32d4.bindPopup(popup_0971d1e0f8dc290c60097b0bbc0e4e8d)
+        ;
+
+        
+    
+    
+            circle_marker_1696314148a163fd6d86a693abcd32d4.bindTooltip(
+                `<div>
+                     2000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_11995247b537b9f870f094f485c2e1a9 = L.circleMarker(
+                [-37.794785000000005, 145.03046],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_173d829456df42bfae84e3984afce679 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_5116beea3d5483ade98f07afd9fd7871 = $(`<div id="html_5116beea3d5483ade98f07afd9fd7871" style="width: 100.0%; height: 100.0%;"><b>Site 2820</b><br>Roads: CHANDLER_HWY, EARL_ST, PRINCESS_ST<br>Approaches: 2</div>`)[0];
+                popup_173d829456df42bfae84e3984afce679.setContent(html_5116beea3d5483ade98f07afd9fd7871);
+            
+        
+
+        circle_marker_11995247b537b9f870f094f485c2e1a9.bindPopup(popup_173d829456df42bfae84e3984afce679)
+        ;
+
+        
+    
+    
+            circle_marker_11995247b537b9f870f094f485c2e1a9.bindTooltip(
+                `<div>
+                     2820
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f2693fb427e2d2bf067b2c7438acffa = L.circleMarker(
+                [-37.78661, 145.06202],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_bdca8017b07b52c68e0b3ead7db5f507 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_d5eaf7409317bab73891a95726429976 = $(`<div id="html_d5eaf7409317bab73891a95726429976" style="width: 100.0%; height: 100.0%;"><b>Site 2825</b><br>Roads: BURKE_RD, EASTERN_FWY<br>Approaches: 1</div>`)[0];
+                popup_bdca8017b07b52c68e0b3ead7db5f507.setContent(html_d5eaf7409317bab73891a95726429976);
+            
+        
+
+        circle_marker_7f2693fb427e2d2bf067b2c7438acffa.bindPopup(popup_bdca8017b07b52c68e0b3ead7db5f507)
+        ;
+
+        
+    
+    
+            circle_marker_7f2693fb427e2d2bf067b2c7438acffa.bindTooltip(
+                `<div>
+                     2825
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38fd665e92d7e7b30c900f79bdaec054 = L.circleMarker(
+                [-37.781739325000004, 145.0773314],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_91e5f08cd59205ecdbbebf022c226540 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_0177d78a2e8c39730a3ae835fbe341bd = $(`<div id="html_0177d78a2e8c39730a3ae835fbe341bd" style="width: 100.0%; height: 100.0%;"><b>Site 2827</b><br>Roads: BULLEEN_RD, EASTERN_FWY_W_BD_RAMPS, OFFRAMP_EASTERN_FWY, THOMPSONS_RD<br>Approaches: 4</div>`)[0];
+                popup_91e5f08cd59205ecdbbebf022c226540.setContent(html_0177d78a2e8c39730a3ae835fbe341bd);
+            
+        
+
+        circle_marker_38fd665e92d7e7b30c900f79bdaec054.bindPopup(popup_91e5f08cd59205ecdbbebf022c226540)
+        ;
+
+        
+    
+    
+            circle_marker_38fd665e92d7e7b30c900f79bdaec054.bindTooltip(
+                `<div>
+                     2827
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37786a6db68ae6ce904371658163d79f = L.circleMarker(
+                [-37.814655, 145.02213749999999],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_b140e7888c1d988827630275bb18b99a = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_a26176a5b143f923bde46a8b7fe1c508 = $(`<div id="html_a26176a5b143f923bde46a8b7fe1c508" style="width: 100.0%; height: 100.0%;"><b>Site 3001</b><br>Roads: BARKERS_RD, CHURCH_ST, HIGH_ST<br>Approaches: 4</div>`)[0];
+                popup_b140e7888c1d988827630275bb18b99a.setContent(html_a26176a5b143f923bde46a8b7fe1c508);
+            
+        
+
+        circle_marker_37786a6db68ae6ce904371658163d79f.bindPopup(popup_b140e7888c1d988827630275bb18b99a)
+        ;
+
+        
+    
+    
+            circle_marker_37786a6db68ae6ce904371658163d79f.bindTooltip(
+                `<div>
+                     3001
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f9c904c2b913885586c21cc5fecaf33d = L.circleMarker(
+                [-37.8151625, 145.0265725],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_500addfae90379d4bebe58ee2b323d66 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_6a51ab12f7cd46358714d2bca679a04a = $(`<div id="html_6a51ab12f7cd46358714d2bca679a04a" style="width: 100.0%; height: 100.0%;"><b>Site 3002</b><br>Roads: BARKERS_RD, DENMARK_ST, POWER_ST<br>Approaches: 4</div>`)[0];
+                popup_500addfae90379d4bebe58ee2b323d66.setContent(html_6a51ab12f7cd46358714d2bca679a04a);
+            
+        
+
+        circle_marker_f9c904c2b913885586c21cc5fecaf33d.bindPopup(popup_500addfae90379d4bebe58ee2b323d66)
+        ;
+
+        
+    
+    
+            circle_marker_f9c904c2b913885586c21cc5fecaf33d.bindTooltip(
+                `<div>
+                     3002
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8af5f96de03ad10b46876a7fe5679ecd = L.circleMarker(
+                [-37.822895, 145.0572875],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_748c8a01e790cdfefd8ba6f46b8651be = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_412dfa1fa5bad778216bd3930ad3c395 = $(`<div id="html_412dfa1fa5bad778216bd3930ad3c395" style="width: 100.0%; height: 100.0%;"><b>Site 3120</b><br>Roads: BURKE_RD, CANTERBURY_RD, RATHMINES_RD<br>Approaches: 4</div>`)[0];
+                popup_748c8a01e790cdfefd8ba6f46b8651be.setContent(html_412dfa1fa5bad778216bd3930ad3c395);
+            
+        
+
+        circle_marker_8af5f96de03ad10b46876a7fe5679ecd.bindPopup(popup_748c8a01e790cdfefd8ba6f46b8651be)
+        ;
+
+        
+    
+    
+            circle_marker_8af5f96de03ad10b46876a7fe5679ecd.bindTooltip(
+                `<div>
+                     3120
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76aa4d34263014e9ec841a69d52cc300 = L.circleMarker(
+                [-37.823856666666664, 145.06439333333333],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_3b1c21e1761446f1b52d1ed3a237eb6d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_26ad437712574e65e576c60420468dbf = $(`<div id="html_26ad437712574e65e576c60420468dbf" style="width: 100.0%; height: 100.0%;"><b>Site 3122</b><br>Roads: CANTERBURY_RD, STANHOPE_GV<br>Approaches: 3</div>`)[0];
+                popup_3b1c21e1761446f1b52d1ed3a237eb6d.setContent(html_26ad437712574e65e576c60420468dbf);
+            
+        
+
+        circle_marker_76aa4d34263014e9ec841a69d52cc300.bindPopup(popup_3b1c21e1761446f1b52d1ed3a237eb6d)
+        ;
+
+        
+    
+    
+            circle_marker_76aa4d34263014e9ec841a69d52cc300.bindTooltip(
+                `<div>
+                     3122
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a6aeea1f29d31a555aacb4a869ee2d1 = L.circleMarker(
+                [-37.827846666666666, 145.09857666666664],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_5d42ce828b323894e3fcb5c0f11eb799 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_303bd91e526b835c49536902457a7685 = $(`<div id="html_303bd91e526b835c49536902457a7685" style="width: 100.0%; height: 100.0%;"><b>Site 3126</b><br>Roads: CANTERBURY_RD, WARRIGAL_RD<br>Approaches: 3</div>`)[0];
+                popup_5d42ce828b323894e3fcb5c0f11eb799.setContent(html_303bd91e526b835c49536902457a7685);
+            
+        
+
+        circle_marker_3a6aeea1f29d31a555aacb4a869ee2d1.bindPopup(popup_5d42ce828b323894e3fcb5c0f11eb799)
+        ;
+
+        
+    
+    
+            circle_marker_3a6aeea1f29d31a555aacb4a869ee2d1.bindTooltip(
+                `<div>
+                     3126
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_beaf1344eac9e9eae41e14665a774828 = L.circleMarker(
+                [-37.825226666666666, 145.07794666666666],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_93a6fedfc13ed025904020961db4a2e5 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_2dabc689f73acfb60b79e94a88015a6e = $(`<div id="html_2dabc689f73acfb60b79e94a88015a6e" style="width: 100.0%; height: 100.0%;"><b>Site 3127</b><br>Roads: BALWYN_RD, CANTERBURY_RD<br>Approaches: 3</div>`)[0];
+                popup_93a6fedfc13ed025904020961db4a2e5.setContent(html_2dabc689f73acfb60b79e94a88015a6e);
+            
+        
+
+        circle_marker_beaf1344eac9e9eae41e14665a774828.bindPopup(popup_93a6fedfc13ed025904020961db4a2e5)
+        ;
+
+        
+    
+    
+            circle_marker_beaf1344eac9e9eae41e14665a774828.bindTooltip(
+                `<div>
+                     3127
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec350aaa38494c8113b70f6671b6aff6 = L.circleMarker(
+                [-37.79621333333333, 145.08350666666666],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_63be97241344c1d4819789151b060efb = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_9dff6dc4ecc5d95c59506ac2a0551a13 = $(`<div id="html_9dff6dc4ecc5d95c59506ac2a0551a13" style="width: 100.0%; height: 100.0%;"><b>Site 3180</b><br>Roads: BALWYN_RD, DONCASTER_RD<br>Approaches: 3</div>`)[0];
+                popup_63be97241344c1d4819789151b060efb.setContent(html_9dff6dc4ecc5d95c59506ac2a0551a13);
+            
+        
+
+        circle_marker_ec350aaa38494c8113b70f6671b6aff6.bindPopup(popup_63be97241344c1d4819789151b060efb)
+        ;
+
+        
+    
+    
+            circle_marker_ec350aaa38494c8113b70f6671b6aff6.bindTooltip(
+                `<div>
+                     3180
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a73ec8393f78d62f98d23dc02806e952 = L.circleMarker(
+                [-37.808952500000004, 145.02745749999997],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_0f190e22d0d94f398479178354c72625 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_8fa0b2d4b303c2707b3081e04656f188 = $(`<div id="html_8fa0b2d4b303c2707b3081e04656f188" style="width: 100.0%; height: 100.0%;"><b>Site 3662</b><br>Roads: DENMARK_ST, HIGH_ST, PRINCESS_ST, STUDLEY PARK_RD<br>Approaches: 4</div>`)[0];
+                popup_0f190e22d0d94f398479178354c72625.setContent(html_8fa0b2d4b303c2707b3081e04656f188);
+            
+        
+
+        circle_marker_a73ec8393f78d62f98d23dc02806e952.bindPopup(popup_0f190e22d0d94f398479178354c72625)
+        ;
+
+        
+    
+    
+            circle_marker_a73ec8393f78d62f98d23dc02806e952.bindTooltip(
+                `<div>
+                     3662
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8a90f40d76475a32718910c67e49c445 = L.circleMarker(
+                [-37.837475, 145.0968675],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_8992451f2729f2da82ec6b8d2987e565 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_6192fa1df13c2103ca906452c4a101a1 = $(`<div id="html_6192fa1df13c2103ca906452c4a101a1" style="width: 100.0%; height: 100.0%;"><b>Site 3682</b><br>Roads: RIVERSDALE_RD, WARRIGAL_RD<br>Approaches: 4</div>`)[0];
+                popup_8992451f2729f2da82ec6b8d2987e565.setContent(html_6192fa1df13c2103ca906452c4a101a1);
+            
+        
+
+        circle_marker_8a90f40d76475a32718910c67e49c445.bindPopup(popup_8992451f2729f2da82ec6b8d2987e565)
+        ;
+
+        
+    
+    
+            circle_marker_8a90f40d76475a32718910c67e49c445.bindTooltip(
+                `<div>
+                     3682
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4d2666352e2fa23d6adaac26662893d = L.circleMarker(
+                [-37.85489666666667, 145.09391000000002],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_54e86c386a180908d55696f44d376458 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_f01b70b4cb146041d1751336871b1698 = $(`<div id="html_f01b70b4cb146041d1751336871b1698" style="width: 100.0%; height: 100.0%;"><b>Site 3685</b><br>Roads: HIGHBURY_RD, WARRIGAL_RD<br>Approaches: 3</div>`)[0];
+                popup_54e86c386a180908d55696f44d376458.setContent(html_f01b70b4cb146041d1751336871b1698);
+            
+        
+
+        circle_marker_d4d2666352e2fa23d6adaac26662893d.bindPopup(popup_54e86c386a180908d55696f44d376458)
+        ;
+
+        
+    
+    
+            circle_marker_d4d2666352e2fa23d6adaac26662893d.bindTooltip(
+                `<div>
+                     3685
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cb0327dc1c1d479ee1f39585b8ba204 = L.circleMarker(
+                [-37.833642499999996, 145.0623925],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_cd21190bf46e55b7ed170bc2ca9bfb4e = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_e13e72ca4c14390dd35793bd8149d605 = $(`<div id="html_e13e72ca4c14390dd35793bd8149d605" style="width: 100.0%; height: 100.0%;"><b>Site 3804</b><br>Roads: RIVERSDALE_RD, TRAFALGAR_RD<br>Approaches: 4</div>`)[0];
+                popup_cd21190bf46e55b7ed170bc2ca9bfb4e.setContent(html_e13e72ca4c14390dd35793bd8149d605);
+            
+        
+
+        circle_marker_9cb0327dc1c1d479ee1f39585b8ba204.bindPopup(popup_cd21190bf46e55b7ed170bc2ca9bfb4e)
+        ;
+
+        
+    
+    
+            circle_marker_9cb0327dc1c1d479ee1f39585b8ba204.bindTooltip(
+                `<div>
+                     3804
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3822ef0dc12e37a8f0ea2e0a5ae7eedb = L.circleMarker(
+                [-37.837489999999995, 145.060865],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_3930e60c305b3ba929fc3cf4fe12ec57 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_5299bb62f525a2823579d8562ae88e92 = $(`<div id="html_5299bb62f525a2823579d8562ae88e92" style="width: 100.0%; height: 100.0%;"><b>Site 3812</b><br>Roads: CAMBERWELL_RD, SEYMOUR_GV, TRAFALGAR_RD<br>Approaches: 4</div>`)[0];
+                popup_3930e60c305b3ba929fc3cf4fe12ec57.setContent(html_5299bb62f525a2823579d8562ae88e92);
+            
+        
+
+        circle_marker_3822ef0dc12e37a8f0ea2e0a5ae7eedb.bindPopup(popup_3930e60c305b3ba929fc3cf4fe12ec57)
+        ;
+
+        
+    
+    
+            circle_marker_3822ef0dc12e37a8f0ea2e0a5ae7eedb.bindTooltip(
+                `<div>
+                     3812
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4b3cd3d10f7bd4877325fd716f94109 = L.circleMarker(
+                [-37.79533000000001, 145.06160666666668],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_434ae53130cb4e220c03c9f17c276cb3 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_25be9b2408a0cc5f0a595b2f8e13ad16 = $(`<div id="html_25be9b2408a0cc5f0a595b2f8e13ad16" style="width: 100.0%; height: 100.0%;"><b>Site 4030</b><br>Roads: BURKE_RD, DONCASTER_RD, HIGH_ST, KILBY_RD<br>Approaches: 3</div>`)[0];
+                popup_434ae53130cb4e220c03c9f17c276cb3.setContent(html_25be9b2408a0cc5f0a595b2f8e13ad16);
+            
+        
+
+        circle_marker_d4b3cd3d10f7bd4877325fd716f94109.bindPopup(popup_434ae53130cb4e220c03c9f17c276cb3)
+        ;
+
+        
+    
+    
+            circle_marker_d4b3cd3d10f7bd4877325fd716f94109.bindTooltip(
+                `<div>
+                     4030
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f651c9b9cba6b13d75be90b22355d54 = L.circleMarker(
+                [-37.802297499999995, 145.06123],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_114ab01f9a287779099cabe5086791f8 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_707a19e2eaa20ff3735ad4c47fda0855 = $(`<div id="html_707a19e2eaa20ff3735ad4c47fda0855" style="width: 100.0%; height: 100.0%;"><b>Site 4032</b><br>Roads: BELMORE_RD, BURKE_RD, HARP_RD<br>Approaches: 4</div>`)[0];
+                popup_114ab01f9a287779099cabe5086791f8.setContent(html_707a19e2eaa20ff3735ad4c47fda0855);
+            
+        
+
+        circle_marker_3f651c9b9cba6b13d75be90b22355d54.bindPopup(popup_114ab01f9a287779099cabe5086791f8)
+        ;
+
+        
+    
+    
+            circle_marker_3f651c9b9cba6b13d75be90b22355d54.bindTooltip(
+                `<div>
+                     4032
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_952bfa169278268d20ca3e175a092166 = L.circleMarker(
+                [-37.81184999999999, 145.059405],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_4437452993fa1081f97a2836247bb08b = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_a54ba53ce24a2e97a49f6e89f910930e = $(`<div id="html_a54ba53ce24a2e97a49f6e89f910930e" style="width: 100.0%; height: 100.0%;"><b>Site 4034</b><br>Roads: BURKE_RD, COTHAM_RD, WHITEHORSE_RD<br>Approaches: 4</div>`)[0];
+                popup_4437452993fa1081f97a2836247bb08b.setContent(html_a54ba53ce24a2e97a49f6e89f910930e);
+            
+        
+
+        circle_marker_952bfa169278268d20ca3e175a092166.bindPopup(popup_4437452993fa1081f97a2836247bb08b)
+        ;
+
+        
+    
+    
+            circle_marker_952bfa169278268d20ca3e175a092166.bindTooltip(
+                `<div>
+                     4034
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e000bb45b01cadf4ecb3564ca51ea709 = L.circleMarker(
+                [-37.81815635, 145.058122575],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_8e6055f375540f6a4428eebab6cd5965 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_4a9ba8bf78921423160482a5cada5d12 = $(`<div id="html_4a9ba8bf78921423160482a5cada5d12" style="width: 100.0%; height: 100.0%;"><b>Site 4035</b><br>Roads: BARKERS_RD, BURKE_RD, MONT ALBERT_RD<br>Approaches: 4</div>`)[0];
+                popup_8e6055f375540f6a4428eebab6cd5965.setContent(html_4a9ba8bf78921423160482a5cada5d12);
+            
+        
+
+        circle_marker_e000bb45b01cadf4ecb3564ca51ea709.bindPopup(popup_8e6055f375540f6a4428eebab6cd5965)
+        ;
+
+        
+    
+    
+            circle_marker_e000bb45b01cadf4ecb3564ca51ea709.bindTooltip(
+                `<div>
+                     4035
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45139a0733226d587d172d98c82813cc = L.circleMarker(
+                [-37.83287166666667, 145.05542333333332],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_a222548bcb8733d77815b226dc14d1c9 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_69bee1d9323af65b0e72a1b41df48d73 = $(`<div id="html_69bee1d9323af65b0e72a1b41df48d73" style="width: 100.0%; height: 100.0%;"><b>Site 4040</b><br>Roads: BURKE_RD, CAMBERWELL_RD, RIVERSDALE_RD<br>Approaches: 6</div>`)[0];
+                popup_a222548bcb8733d77815b226dc14d1c9.setContent(html_69bee1d9323af65b0e72a1b41df48d73);
+            
+        
+
+        circle_marker_45139a0733226d587d172d98c82813cc.bindPopup(popup_a222548bcb8733d77815b226dc14d1c9)
+        ;
+
+        
+    
+    
+            circle_marker_45139a0733226d587d172d98c82813cc.bindTooltip(
+                `<div>
+                     4040
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4549f7464f331ffe0222c61325ff5c30 = L.circleMarker(
+                [-37.84716, 145.0526275],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_59e83107f6c9ed748d745dce7bbae0b2 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_81dd335184796bd74a156fc231cde289 = $(`<div id="html_81dd335184796bd74a156fc231cde289" style="width: 100.0%; height: 100.0%;"><b>Site 4043</b><br>Roads: BURKE_RD, TOORAK_RD<br>Approaches: 4</div>`)[0];
+                popup_59e83107f6c9ed748d745dce7bbae0b2.setContent(html_81dd335184796bd74a156fc231cde289);
+            
+        
+
+        circle_marker_4549f7464f331ffe0222c61325ff5c30.bindPopup(popup_59e83107f6c9ed748d745dce7bbae0b2)
+        ;
+
+        
+    
+    
+            circle_marker_4549f7464f331ffe0222c61325ff5c30.bindTooltip(
+                `<div>
+                     4043
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fdd5f5a57191c3652875f827492b7646 = L.circleMarker(
+                [-37.79414333333333, 145.06933333333333],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_72d187e49ce879e80ae6f39faa46b79d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_f5220ae2a6bf4f49e6ad71c1c7ce8b7a = $(`<div id="html_f5220ae2a6bf4f49e6ad71c1c7ce8b7a" style="width: 100.0%; height: 100.0%;"><b>Site 4051</b><br>Roads: BULLEEN_RD, DONCASTER_RD, SEVERN_ST<br>Approaches: 3</div>`)[0];
+                popup_72d187e49ce879e80ae6f39faa46b79d.setContent(html_f5220ae2a6bf4f49e6ad71c1c7ce8b7a);
+            
+        
+
+        circle_marker_fdd5f5a57191c3652875f827492b7646.bindPopup(popup_72d187e49ce879e80ae6f39faa46b79d)
+        ;
+
+        
+    
+    
+            circle_marker_fdd5f5a57191c3652875f827492b7646.bindTooltip(
+                `<div>
+                     4051
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6d601da9f8c5d7c6e96de02d07a4819b = L.circleMarker(
+                [-37.804975, 145.081765],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_a34bbf48e762c03a69230ad8b7ab3011 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_903cc5ad241f6c348b28cbb33fd9db89 = $(`<div id="html_903cc5ad241f6c348b28cbb33fd9db89" style="width: 100.0%; height: 100.0%;"><b>Site 4057</b><br>Roads: BALWYN_RD, BELMORE_RD<br>Approaches: 4</div>`)[0];
+                popup_a34bbf48e762c03a69230ad8b7ab3011.setContent(html_903cc5ad241f6c348b28cbb33fd9db89);
+            
+        
+
+        circle_marker_6d601da9f8c5d7c6e96de02d07a4819b.bindPopup(popup_a34bbf48e762c03a69230ad8b7ab3011)
+        ;
+
+        
+    
+    
+            circle_marker_6d601da9f8c5d7c6e96de02d07a4819b.bindTooltip(
+                `<div>
+                     4057
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e3afc3f3c365a1e701e646a8eda2a49f = L.circleMarker(
+                [-37.8143725, 145.080005],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_4a41f4c31693bcc0d9e740838293d04b = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_7373d3b4cd4713e0a3c86ecb5257e506 = $(`<div id="html_7373d3b4cd4713e0a3c86ecb5257e506" style="width: 100.0%; height: 100.0%;"><b>Site 4063</b><br>Roads: BALWYN_RD, WHITEHORSE_RD<br>Approaches: 4</div>`)[0];
+                popup_4a41f4c31693bcc0d9e740838293d04b.setContent(html_7373d3b4cd4713e0a3c86ecb5257e506);
+            
+        
+
+        circle_marker_e3afc3f3c365a1e701e646a8eda2a49f.bindPopup(popup_4a41f4c31693bcc0d9e740838293d04b)
+        ;
+
+        
+    
+    
+            circle_marker_e3afc3f3c365a1e701e646a8eda2a49f.bindTooltip(
+                `<div>
+                     4063
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da80de1884c7178d82cd3781b0e0e9d4 = L.circleMarker(
+                [-37.82155, 145.01503],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_a2f5527e12728bb1878d1a2200e07d82 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_ad30e4a5ab1d2db138b4a1c97d246f33 = $(`<div id="html_ad30e4a5ab1d2db138b4a1c97d246f33" style="width: 100.0%; height: 100.0%;"><b>Site 4262</b><br>Roads: BRIDGE_RD, BURWOOD_RD<br>Approaches: 1</div>`)[0];
+                popup_a2f5527e12728bb1878d1a2200e07d82.setContent(html_ad30e4a5ab1d2db138b4a1c97d246f33);
+            
+        
+
+        circle_marker_da80de1884c7178d82cd3781b0e0e9d4.bindPopup(popup_a2f5527e12728bb1878d1a2200e07d82)
+        ;
+
+        
+    
+    
+            circle_marker_da80de1884c7178d82cd3781b0e0e9d4.bindTooltip(
+                `<div>
+                     4262
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1598a89db1696b77f8be0d279dd7f313 = L.circleMarker(
+                [-37.823056175, 145.024958],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_6b74bd4edc69ceccec903ed6ce870131 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_eaf05e84d8e5a211d1a432d51d6bc90f = $(`<div id="html_eaf05e84d8e5a211d1a432d51d6bc90f" style="width: 100.0%; height: 100.0%;"><b>Site 4263</b><br>Roads: BURWOOD_RD, POWER_ST<br>Approaches: 4</div>`)[0];
+                popup_6b74bd4edc69ceccec903ed6ce870131.setContent(html_eaf05e84d8e5a211d1a432d51d6bc90f);
+            
+        
+
+        circle_marker_1598a89db1696b77f8be0d279dd7f313.bindPopup(popup_6b74bd4edc69ceccec903ed6ce870131)
+        ;
+
+        
+    
+    
+            circle_marker_1598a89db1696b77f8be0d279dd7f313.bindTooltip(
+                `<div>
+                     4263
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9eef20fba91babbdc3cc7bfd92635900 = L.circleMarker(
+                [-37.8241275, 145.034005],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_21351be411aa0e2fe337e20460c11a49 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_40831d51e8e2465660194e99da918299 = $(`<div id="html_40831d51e8e2465660194e99da918299" style="width: 100.0%; height: 100.0%;"><b>Site 4264</b><br>Roads: BURWOOD_RD, GLENFERRIE_RD<br>Approaches: 4</div>`)[0];
+                popup_21351be411aa0e2fe337e20460c11a49.setContent(html_40831d51e8e2465660194e99da918299);
+            
+        
+
+        circle_marker_9eef20fba91babbdc3cc7bfd92635900.bindPopup(popup_21351be411aa0e2fe337e20460c11a49)
+        ;
+
+        
+    
+    
+            circle_marker_9eef20fba91babbdc3cc7bfd92635900.bindTooltip(
+                `<div>
+                     4264
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_deb326de9ddcf600336f643d18108482 = L.circleMarker(
+                [-37.82529666666667, 145.04344666666668],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_8de1811779b1dbe846ccaa6042d59551 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_5559a19f8f376207fae2980368e26477 = $(`<div id="html_5559a19f8f376207fae2980368e26477" style="width: 100.0%; height: 100.0%;"><b>Site 4266</b><br>Roads: AUBURN_RD, BURWOOD_RD<br>Approaches: 4</div>`)[0];
+                popup_8de1811779b1dbe846ccaa6042d59551.setContent(html_5559a19f8f376207fae2980368e26477);
+            
+        
+
+        circle_marker_deb326de9ddcf600336f643d18108482.bindPopup(popup_8de1811779b1dbe846ccaa6042d59551)
+        ;
+
+        
+    
+    
+            circle_marker_deb326de9ddcf600336f643d18108482.bindTooltip(
+                `<div>
+                     4266
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e0327a08eaa261d28781a8faccbecfc1 = L.circleMarker(
+                [-37.8302275, 145.03281500000003],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_a2372e12eeefd3d7ee40ed052677c89f = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_01195e35ccb88f0db7fea24a302b23be = $(`<div id="html_01195e35ccb88f0db7fea24a302b23be" style="width: 100.0%; height: 100.0%;"><b>Site 4270</b><br>Roads: GLENFERRIE_RD, RIVERSDALE_RD<br>Approaches: 4</div>`)[0];
+                popup_a2372e12eeefd3d7ee40ed052677c89f.setContent(html_01195e35ccb88f0db7fea24a302b23be);
+            
+        
+
+        circle_marker_e0327a08eaa261d28781a8faccbecfc1.bindPopup(popup_a2372e12eeefd3d7ee40ed052677c89f)
+        ;
+
+        
+    
+    
+            circle_marker_e0327a08eaa261d28781a8faccbecfc1.bindTooltip(
+                `<div>
+                     4270
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_00ae8d72b82f0fb9438abe57cfcc55b4 = L.circleMarker(
+                [-37.83188333333333, 145.04639333333333],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_570943b81db537f85bb4ec605c5caa4c = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_a7e318c92f53567f1fcd81d78a0af634 = $(`<div id="html_a7e318c92f53567f1fcd81d78a0af634" style="width: 100.0%; height: 100.0%;"><b>Site 4272</b><br>Roads: RIVERSDALE_RD, TOORONGA_RD<br>Approaches: 3</div>`)[0];
+                popup_570943b81db537f85bb4ec605c5caa4c.setContent(html_a7e318c92f53567f1fcd81d78a0af634);
+            
+        
+
+        circle_marker_00ae8d72b82f0fb9438abe57cfcc55b4.bindPopup(popup_570943b81db537f85bb4ec605c5caa4c)
+        ;
+
+        
+    
+    
+            circle_marker_00ae8d72b82f0fb9438abe57cfcc55b4.bindTooltip(
+                `<div>
+                     4272
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b517a87062ec48586fa01c6860be544 = L.circleMarker(
+                [-37.84659, 145.04443],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_30f2d1cbe49dce40bd63ab4cff306c88 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_d9372f9f891cdbe08b4a4b5b864efaa0 = $(`<div id="html_d9372f9f891cdbe08b4a4b5b864efaa0" style="width: 100.0%; height: 100.0%;"><b>Site 4273</b><br>Roads: TOORAK_RD, TOORONGA_RD<br>Approaches: 2</div>`)[0];
+                popup_30f2d1cbe49dce40bd63ab4cff306c88.setContent(html_d9372f9f891cdbe08b4a4b5b864efaa0);
+            
+        
+
+        circle_marker_7b517a87062ec48586fa01c6860be544.bindPopup(popup_30f2d1cbe49dce40bd63ab4cff306c88)
+        ;
+
+        
+    
+    
+            circle_marker_7b517a87062ec48586fa01c6860be544.bindTooltip(
+                `<div>
+                     4273
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_976a5d172b74d96941a48553f93de6f0 = L.circleMarker(
+                [-37.800837924999996, 145.049119025],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_41f60cae77cf774710224045b1c7ceb0 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_59f5248e44fcfb529196634e5e77fb49 = $(`<div id="html_59f5248e44fcfb529196634e5e77fb49" style="width: 100.0%; height: 100.0%;"><b>Site 4321</b><br>Roads: HARP_RD, HARP_ST, HIGH_ST, VALERIE_ST<br>Approaches: 4</div>`)[0];
+                popup_41f60cae77cf774710224045b1c7ceb0.setContent(html_59f5248e44fcfb529196634e5e77fb49);
+            
+        
+
+        circle_marker_976a5d172b74d96941a48553f93de6f0.bindPopup(popup_41f60cae77cf774710224045b1c7ceb0)
+        ;
+
+        
+    
+    
+            circle_marker_976a5d172b74d96941a48553f93de6f0.bindTooltip(
+                `<div>
+                     4321
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e3468d9a9b01df085aad31365d8dc9b8 = L.circleMarker(
+                [-37.80933233333334, 145.03684766666666],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_0c3ce1ba8187ea5fe7f692a0aa1f1ea9 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_40630f656bb22ba17afe9745cedfb012 = $(`<div id="html_40630f656bb22ba17afe9745cedfb012" style="width: 100.0%; height: 100.0%;"><b>Site 4324</b><br>Roads: COTHAM_RD, GLENFERRIE_RD<br>Approaches: 3</div>`)[0];
+                popup_0c3ce1ba8187ea5fe7f692a0aa1f1ea9.setContent(html_40630f656bb22ba17afe9745cedfb012);
+            
+        
+
+        circle_marker_e3468d9a9b01df085aad31365d8dc9b8.bindPopup(popup_0c3ce1ba8187ea5fe7f692a0aa1f1ea9)
+        ;
+
+        
+    
+    
+            circle_marker_e3468d9a9b01df085aad31365d8dc9b8.bindTooltip(
+                `<div>
+                     4324
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_72401e568dc3b240b53569fe59e3698a = L.circleMarker(
+                [-37.806215, 145.03525],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.8, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_9025053910718dda4ea7acf7b2f145b4);
+        
+    
+        var popup_d090e3f2645b8000709fead2480b4f18 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_b8447170895317228d32f3117647ab47 = $(`<div id="html_b8447170895317228d32f3117647ab47" style="width: 100.0%; height: 100.0%;"><b>Site 4335</b><br>Roads: CHARLES_ST, HIGH_ST<br>Approaches: 1</div>`)[0];
+                popup_d090e3f2645b8000709fead2480b4f18.setContent(html_b8447170895317228d32f3117647ab47);
+            
+        
+
+        circle_marker_72401e568dc3b240b53569fe59e3698a.bindPopup(popup_d090e3f2645b8000709fead2480b4f18)
+        ;
+
+        
+    
+    
+            circle_marker_72401e568dc3b240b53569fe59e3698a.bindTooltip(
+                `<div>
+                     4335
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

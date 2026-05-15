@@ -12,6 +12,7 @@ import sys
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("QtAgg")
 
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
@@ -21,12 +22,27 @@ from matplotlib.figure import Figure
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QColor, QPalette
 from PyQt6.QtWidgets import (
-    QApplication, QMainWindow, QWidget, QTabWidget,
-    QVBoxLayout, QHBoxLayout, QGridLayout,
-    QLabel, QLineEdit, QComboBox, QPushButton,
-    QRadioButton, QButtonGroup, QTextEdit,
-    QTableWidget, QTableWidgetItem, QHeaderView,
-    QFileDialog, QMessageBox, QFrame, QSizePolicy,
+    QApplication,
+    QMainWindow,
+    QWidget,
+    QTabWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QGridLayout,
+    QLabel,
+    QLineEdit,
+    QComboBox,
+    QPushButton,
+    QRadioButton,
+    QButtonGroup,
+    QTextEdit,
+    QTableWidget,
+    QTableWidgetItem,
+    QHeaderView,
+    QFileDialog,
+    QMessageBox,
+    QFrame,
+    QSizePolicy,
     QSpacerItem,
 )
 
@@ -35,20 +51,20 @@ _HERE = Path(__file__).parent.resolve()
 if str(_HERE) not in sys.path:
     sys.path.insert(0, str(_HERE))
 
-from search import METHODS                    # noqa: E402
-from helpers import parse_problem, visualise  # noqa: E402
-from models import Node, Edge, Problem        # noqa: E402
+from assignment1.search import METHODS  # noqa: E402
+from assignment1.helpers import parse_problem, visualise  # noqa: E402
+from assignment1.models import Node, Edge, Problem  # noqa: E402
 
 TEST_DATA_DIR = _HERE / "test_data"
 
 # ── colour tokens (Catppuccin Mocha) ─────────────────────────────────────────
-BG      = "#1e1e2e"
-PANEL   = "#313244"
+BG = "#1e1e2e"
+PANEL = "#313244"
 SURFACE = "#45475a"
-FG      = "#cdd6f4"
-ACCENT  = "#89b4fa"
-GREEN   = "#a6e3a1"
-RED     = "#f38ba8"
+FG = "#cdd6f4"
+ACCENT = "#89b4fa"
+GREEN = "#a6e3a1"
+RED = "#f38ba8"
 SUBTEXT = "#a6adc8"
 
 # ── shared stylesheet ─────────────────────────────────────────────────────────
@@ -288,13 +304,14 @@ class SearchTab(QWidget):
         ctrl_layout.addWidget(_header("Test File"))
         self._file_combo = QComboBox()
         self._file_combo.setSizePolicy(
-            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed
+        )
         ctrl_layout.addWidget(self._file_combo)
         self._refresh_file_list()
 
         btn_row = QHBoxLayout()
         refresh_btn = _btn("Refresh")
-        browse_btn  = _btn("Browse…")
+        browse_btn = _btn("Browse…")
         refresh_btn.clicked.connect(self._refresh_file_list)
         browse_btn.clicked.connect(self._browse_file)
         btn_row.addWidget(refresh_btn)
@@ -307,10 +324,10 @@ class SearchTab(QWidget):
         ctrl_layout.addWidget(_header("Algorithm"))
         self._algo_group = QButtonGroup(self)
         algo_info = [
-            ("DFS",  "Depth-First Search"),
-            ("BFS",  "Breadth-First Search"),
+            ("DFS", "Depth-First Search"),
+            ("BFS", "Breadth-First Search"),
             ("GBFS", "Greedy Best-First"),
-            ("AS",   "A* Search"),
+            ("AS", "A* Search"),
             ("CUS1", "Custom 1 – Bidirectional BFS"),
             ("CUS2", "Custom 2 – Weighted A*  (w=1.5)"),
         ]
@@ -347,15 +364,23 @@ class SearchTab(QWidget):
         graph_layout.setSpacing(0)
 
         self._fig = Figure(facecolor=BG)
-        self._ax  = self._fig.add_subplot(111, facecolor=BG)
+        self._ax = self._fig.add_subplot(111, facecolor=BG)
         self._ax.axis("off")
-        self._ax.text(0.5, 0.5, "Load a file and run a search",
-                      transform=self._ax.transAxes,
-                      ha="center", va="center", color=SURFACE, fontsize=14)
+        self._ax.text(
+            0.5,
+            0.5,
+            "Load a file and run a search",
+            transform=self._ax.transAxes,
+            ha="center",
+            va="center",
+            color=SURFACE,
+            fontsize=14,
+        )
 
         self._canvas = FigureCanvas(self._fig)
         self._canvas.setSizePolicy(
-            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding
+        )
         toolbar = NavToolbar(self._canvas, graph_panel)
 
         graph_layout.addWidget(toolbar)
@@ -367,8 +392,9 @@ class SearchTab(QWidget):
         current = self._file_combo.currentText()
         self._file_combo.clear()
         if TEST_DATA_DIR.exists():
-            files = sorted(f.name for f in TEST_DATA_DIR.iterdir()
-                           if f.suffix == ".txt")
+            files = sorted(
+                f.name for f in TEST_DATA_DIR.iterdir() if f.suffix == ".txt"
+            )
             self._file_combo.addItems(files)
             if current in files:
                 self._file_combo.setCurrentText(current)
@@ -376,7 +402,8 @@ class SearchTab(QWidget):
     def _browse_file(self) -> None:
         init = str(TEST_DATA_DIR) if TEST_DATA_DIR.exists() else str(_HERE)
         path, _ = QFileDialog.getOpenFileName(
-            self, "Select a problem file", init, "Text files (*.txt);;All files (*)")
+            self, "Select a problem file", init, "Text files (*.txt);;All files (*)"
+        )
         if not path:
             return
         p = Path(path)
@@ -479,16 +506,19 @@ class CreateTab(QWidget):
         nl.addWidget(self._nodes_table, stretch=1)
 
         ni = QHBoxLayout()
-        self._node_id_e = QLineEdit(); self._node_id_e.setPlaceholderText("ID")
-        self._node_x_e  = QLineEdit(); self._node_x_e.setPlaceholderText("X")
-        self._node_y_e  = QLineEdit(); self._node_y_e.setPlaceholderText("Y")
+        self._node_id_e = QLineEdit()
+        self._node_id_e.setPlaceholderText("ID")
+        self._node_x_e = QLineEdit()
+        self._node_x_e.setPlaceholderText("X")
+        self._node_y_e = QLineEdit()
+        self._node_y_e.setPlaceholderText("Y")
         for w in (self._node_id_e, self._node_x_e, self._node_y_e):
             ni.addWidget(w)
         nl.addLayout(ni)
 
         nb = QHBoxLayout()
         add_node_btn = _btn("Add Node")
-        rm_node_btn  = _btn("Remove Selected", danger=True)
+        rm_node_btn = _btn("Remove Selected", danger=True)
         add_node_btn.clicked.connect(self._add_node)
         rm_node_btn.clicked.connect(lambda: self._remove_rows(self._nodes_table))
         nb.addWidget(add_node_btn)
@@ -529,16 +559,19 @@ class CreateTab(QWidget):
         el.addWidget(self._edges_table, stretch=1)
 
         ei = QHBoxLayout()
-        self._edge_start_e = QLineEdit(); self._edge_start_e.setPlaceholderText("Start")
-        self._edge_end_e   = QLineEdit(); self._edge_end_e.setPlaceholderText("End")
-        self._edge_cost_e  = QLineEdit(); self._edge_cost_e.setPlaceholderText("Cost")
+        self._edge_start_e = QLineEdit()
+        self._edge_start_e.setPlaceholderText("Start")
+        self._edge_end_e = QLineEdit()
+        self._edge_end_e.setPlaceholderText("End")
+        self._edge_cost_e = QLineEdit()
+        self._edge_cost_e.setPlaceholderText("Cost")
         for w in (self._edge_start_e, self._edge_end_e, self._edge_cost_e):
             ei.addWidget(w)
         el.addLayout(ei)
 
         eb = QHBoxLayout()
         add_edge_btn = _btn("Add Edge")
-        rm_edge_btn  = _btn("Remove Selected", danger=True)
+        rm_edge_btn = _btn("Remove Selected", danger=True)
         add_edge_btn.clicked.connect(self._add_edge)
         rm_edge_btn.clicked.connect(lambda: self._remove_rows(self._edges_table))
         eb.addWidget(add_edge_btn)
@@ -569,15 +602,23 @@ class CreateTab(QWidget):
         pl.addWidget(_header("Live Preview"))
 
         self._prev_fig = Figure(facecolor=BG)
-        self._prev_ax  = self._prev_fig.add_subplot(111, facecolor=BG)
+        self._prev_ax = self._prev_fig.add_subplot(111, facecolor=BG)
         self._prev_ax.axis("off")
-        self._prev_ax.text(0.5, 0.5, "Add nodes to see a preview",
-                           transform=self._prev_ax.transAxes,
-                           ha="center", va="center", color=SURFACE, fontsize=13)
+        self._prev_ax.text(
+            0.5,
+            0.5,
+            "Add nodes to see a preview",
+            transform=self._prev_ax.transAxes,
+            ha="center",
+            va="center",
+            color=SURFACE,
+            fontsize=13,
+        )
 
         self._prev_canvas = FigureCanvas(self._prev_fig)
         self._prev_canvas.setSizePolicy(
-            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding
+        )
         pl.addWidget(self._prev_canvas, stretch=1)
 
         root.addWidget(preview_panel, stretch=2)
@@ -586,8 +627,8 @@ class CreateTab(QWidget):
     def _add_node(self) -> None:
         try:
             nid = int(self._node_id_e.text())
-            x   = int(self._node_x_e.text())
-            y   = int(self._node_y_e.text())
+            x = int(self._node_x_e.text())
+            y = int(self._node_y_e.text())
         except ValueError:
             QMessageBox.warning(self, "Invalid input", "ID, X and Y must be integers.")
             return
@@ -601,17 +642,22 @@ class CreateTab(QWidget):
             item = QTableWidgetItem(str(val))
             item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
             self._nodes_table.setItem(r, col, item)
-        self._node_id_e.clear(); self._node_x_e.clear(); self._node_y_e.clear()
+        self._node_id_e.clear()
+        self._node_x_e.clear()
+        self._node_y_e.clear()
         self._update_preview()
 
     def _add_edge(self) -> None:
         try:
             start = int(self._edge_start_e.text())
-            end   = int(self._edge_end_e.text())
-            cost  = float(self._edge_cost_e.text())
+            end = int(self._edge_end_e.text())
+            cost = float(self._edge_cost_e.text())
         except ValueError:
-            QMessageBox.warning(self, "Invalid input",
-                                "Start/End must be integers; Cost must be a number.")
+            QMessageBox.warning(
+                self,
+                "Invalid input",
+                "Start/End must be integers; Cost must be a number.",
+            )
             return
         display = int(cost) if cost == int(cost) else cost
         r = self._edges_table.rowCount()
@@ -620,7 +666,9 @@ class CreateTab(QWidget):
             item = QTableWidgetItem(str(val))
             item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
             self._edges_table.setItem(r, col, item)
-        self._edge_start_e.clear(); self._edge_end_e.clear(); self._edge_cost_e.clear()
+        self._edge_start_e.clear()
+        self._edge_end_e.clear()
+        self._edge_cost_e.clear()
         self._update_preview()
 
     def _remove_rows(self, table: QTableWidget) -> None:
@@ -638,9 +686,16 @@ class CreateTab(QWidget):
         node_rows = self._table_rows(self._nodes_table)
         if not node_rows:
             self._prev_ax.axis("off")
-            self._prev_ax.text(0.5, 0.5, "Add nodes to see a preview",
-                               transform=self._prev_ax.transAxes,
-                               ha="center", va="center", color=SURFACE, fontsize=13)
+            self._prev_ax.text(
+                0.5,
+                0.5,
+                "Add nodes to see a preview",
+                transform=self._prev_ax.transAxes,
+                ha="center",
+                va="center",
+                color=SURFACE,
+                fontsize=13,
+            )
             self._prev_canvas.draw()
             return
 
@@ -652,8 +707,7 @@ class CreateTab(QWidget):
         for row in self._table_rows(self._edges_table):
             s, e, c = int(row[0]), int(row[1]), float(row[2])
             if s in nodes_dict and e in nodes_dict:
-                nodes_dict[s].edges.append(
-                    Edge(start_node_id=s, end_node_id=e, cost=c))
+                nodes_dict[s].edges.append(Edge(start_node_id=s, end_node_id=e, cost=c))
 
         all_ids = list(nodes_dict.keys())
 
@@ -665,23 +719,32 @@ class CreateTab(QWidget):
             origin = all_ids[0]
 
         try:
-            dests = [int(d.strip()) for d in self._dest_e.text().split(";")
-                     if d.strip()]
+            dests = [
+                int(d.strip()) for d in self._dest_e.text().split(";") if d.strip()
+            ]
             dests = [d for d in dests if d in nodes_dict]
         except ValueError:
             dests = []
         if not dests:
             dests = [all_ids[-1]] if len(all_ids) > 1 else [all_ids[0]]
 
-        problem = Problem(nodes=list(nodes_dict.values()),
-                          origin=origin, destinations=dests)
+        problem = Problem(
+            nodes=list(nodes_dict.values()), origin=origin, destinations=dests
+        )
         try:
             visualise(problem, None, ax=self._prev_ax, title="Live Preview")
         except Exception:
             self._prev_ax.axis("off")
-            self._prev_ax.text(0.5, 0.5, "Preview unavailable",
-                               transform=self._prev_ax.transAxes,
-                               ha="center", va="center", color=RED, fontsize=12)
+            self._prev_ax.text(
+                0.5,
+                0.5,
+                "Preview unavailable",
+                transform=self._prev_ax.transAxes,
+                ha="center",
+                va="center",
+                color=RED,
+                fontsize=12,
+            )
 
         self._prev_fig.tight_layout()
         self._prev_canvas.draw()
@@ -691,17 +754,21 @@ class CreateTab(QWidget):
         nodes = self._table_rows(self._nodes_table)
         edges = self._table_rows(self._edges_table)
         origin_str = self._origin_e.text().strip()
-        dest_str   = self._dest_e.text().strip()
-        fname      = self._fname_e.text().strip()
+        dest_str = self._dest_e.text().strip()
+        fname = self._fname_e.text().strip()
 
         if not nodes:
-            QMessageBox.warning(self, "No nodes", "Add at least one node before saving.")
+            QMessageBox.warning(
+                self, "No nodes", "Add at least one node before saving."
+            )
             return
         if not origin_str:
             QMessageBox.warning(self, "No origin", "Enter an origin node ID.")
             return
         if not dest_str:
-            QMessageBox.warning(self, "No destinations", "Enter at least one destination.")
+            QMessageBox.warning(
+                self, "No destinations", "Enter at least one destination."
+            )
             return
         if not fname:
             QMessageBox.warning(self, "No filename", "Enter a filename.")
@@ -725,8 +792,11 @@ class CreateTab(QWidget):
 
         init = str(TEST_DATA_DIR) if TEST_DATA_DIR.exists() else str(_HERE)
         save_path, _ = QFileDialog.getSaveFileName(
-            self, "Save problem file", str(Path(init) / fname),
-            "Text files (*.txt);;All files (*)")
+            self,
+            "Save problem file",
+            str(Path(init) / fname),
+            "Text files (*.txt);;All files (*)",
+        )
         if not save_path:
             return
 
@@ -741,8 +811,7 @@ class CreateTab(QWidget):
     def _table_rows(table: QTableWidget) -> list[list[str]]:
         rows = []
         for r in range(table.rowCount()):
-            rows.append([table.item(r, c).text()
-                         for c in range(table.columnCount())])
+            rows.append([table.item(r, c).text() for c in range(table.columnCount())])
         return rows
 
 

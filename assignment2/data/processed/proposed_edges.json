@@ -1,0 +1,425 @@
+[
+  {
+    "from": "0970",
+    "to": "3685",
+    "roads": [
+      "WARRIGAL_RD"
+    ],
+    "distance_km": 1.395,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "2000",
+    "to": "3682",
+    "roads": [
+      "WARRIGAL_RD"
+    ],
+    "distance_km": 1.622,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3001",
+    "to": "3002",
+    "roads": [
+      "BARKERS_RD"
+    ],
+    "distance_km": 0.394,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "3001",
+    "to": "3662",
+    "roads": [
+      "HIGH_ST"
+    ],
+    "distance_km": 0.788,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3002",
+    "to": "3662",
+    "roads": [
+      "DENMARK_ST"
+    ],
+    "distance_km": 0.695,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3002",
+    "to": "4035",
+    "roads": [
+      "BARKERS_RD"
+    ],
+    "distance_km": 2.791,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "3120",
+    "to": "3122",
+    "roads": [
+      "CANTERBURY_RD"
+    ],
+    "distance_km": 0.633,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "3120",
+    "to": "4035",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 0.532,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3122",
+    "to": "3127",
+    "roads": [
+      "CANTERBURY_RD"
+    ],
+    "distance_km": 1.2,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "3127",
+    "to": "3126",
+    "roads": [
+      "CANTERBURY_RD"
+    ],
+    "distance_km": 1.835,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "3127",
+    "to": "4063",
+    "roads": [
+      "BALWYN_RD"
+    ],
+    "distance_km": 1.22,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3662",
+    "to": "2820",
+    "roads": [
+      "PRINCESS_ST"
+    ],
+    "distance_km": 1.597,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3662",
+    "to": "4335",
+    "roads": [
+      "HIGH_ST"
+    ],
+    "distance_km": 0.749,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3682",
+    "to": "3126",
+    "roads": [
+      "WARRIGAL_RD"
+    ],
+    "distance_km": 1.081,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3685",
+    "to": "2000",
+    "roads": [
+      "WARRIGAL_RD"
+    ],
+    "distance_km": 0.333,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "3804",
+    "to": "3682",
+    "roads": [
+      "RIVERSDALE_RD"
+    ],
+    "distance_km": 3.057,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "3812",
+    "to": "3804",
+    "roads": [
+      "TRAFALGAR_RD"
+    ],
+    "distance_km": 0.448,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4030",
+    "to": "2825",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 0.97,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4030",
+    "to": "4051",
+    "roads": [
+      "DONCASTER_RD"
+    ],
+    "distance_km": 0.692,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4032",
+    "to": "4030",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 0.775,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4032",
+    "to": "4057",
+    "roads": [
+      "BELMORE_RD"
+    ],
+    "distance_km": 1.829,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4034",
+    "to": "4032",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 1.074,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4034",
+    "to": "4063",
+    "roads": [
+      "WHITEHORSE_RD"
+    ],
+    "distance_km": 1.831,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4035",
+    "to": "4034",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 0.71,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4040",
+    "to": "3120",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 1.121,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4040",
+    "to": "3804",
+    "roads": [
+      "RIVERSDALE_RD"
+    ],
+    "distance_km": 0.618,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4040",
+    "to": "3812",
+    "roads": [
+      "CAMBERWELL_RD"
+    ],
+    "distance_km": 0.701,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4043",
+    "to": "2000",
+    "roads": [
+      "TOORAK_RD"
+    ],
+    "distance_km": 3.699,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4043",
+    "to": "4040",
+    "roads": [
+      "BURKE_RD"
+    ],
+    "distance_km": 1.608,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4051",
+    "to": "2827",
+    "roads": [
+      "BULLEEN_RD"
+    ],
+    "distance_km": 1.548,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4051",
+    "to": "3180",
+    "roads": [
+      "DONCASTER_RD"
+    ],
+    "distance_km": 1.266,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4057",
+    "to": "3180",
+    "roads": [
+      "BALWYN_RD"
+    ],
+    "distance_km": 0.986,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4063",
+    "to": "4057",
+    "roads": [
+      "BALWYN_RD"
+    ],
+    "distance_km": 1.056,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4262",
+    "to": "4263",
+    "roads": [
+      "BURWOOD_RD"
+    ],
+    "distance_km": 0.888,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4263",
+    "to": "3002",
+    "roads": [
+      "POWER_ST"
+    ],
+    "distance_km": 0.889,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4263",
+    "to": "4264",
+    "roads": [
+      "BURWOOD_RD"
+    ],
+    "distance_km": 0.804,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4264",
+    "to": "4266",
+    "roads": [
+      "BURWOOD_RD"
+    ],
+    "distance_km": 0.839,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4264",
+    "to": "4324",
+    "roads": [
+      "GLENFERRIE_RD"
+    ],
+    "distance_km": 1.664,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4270",
+    "to": "4264",
+    "roads": [
+      "GLENFERRIE_RD"
+    ],
+    "distance_km": 0.686,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4270",
+    "to": "4272",
+    "roads": [
+      "RIVERSDALE_RD"
+    ],
+    "distance_km": 1.207,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4272",
+    "to": "4040",
+    "roads": [
+      "RIVERSDALE_RD"
+    ],
+    "distance_km": 0.801,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4273",
+    "to": "4043",
+    "roads": [
+      "TOORAK_RD"
+    ],
+    "distance_km": 0.723,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4273",
+    "to": "4272",
+    "roads": [
+      "TOORONGA_RD"
+    ],
+    "distance_km": 1.644,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4321",
+    "to": "4030",
+    "roads": [
+      "HIGH_ST"
+    ],
+    "distance_km": 1.257,
+    "sort_axis": "latitude"
+  },
+  {
+    "from": "4321",
+    "to": "4032",
+    "roads": [
+      "HARP_RD"
+    ],
+    "distance_km": 1.076,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4324",
+    "to": "4034",
+    "roads": [
+      "COTHAM_RD"
+    ],
+    "distance_km": 2.001,
+    "sort_axis": "longitude"
+  },
+  {
+    "from": "4335",
+    "to": "4321",
+    "roads": [
+      "HIGH_ST"
+    ],
+    "distance_km": 1.357,
+    "sort_axis": "latitude"
+  }
+]

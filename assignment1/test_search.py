@@ -14,10 +14,9 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from models import Edge, Node, Problem
-from search import METHODS, astar, bfs, cus1, cus2, dfs, gbfs
-from helpers import parse_problem, visualise
-
+from assignment1.models import Edge, Node, Problem
+from assignment1.search import METHODS, astar, bfs, cus1, cus2, dfs, gbfs
+from assignment1.helpers import parse_problem, visualise
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -435,7 +434,7 @@ class TestMethodsRegistry(unittest.TestCase):
     """METHODS dict must expose all expected keys and map to callables."""
 
     def test_all_keys_present(self):
-        for key in ("DFS", "BFS","GBFS", "AS", "CUS1", "CUS2"):
+        for key in ("DFS", "BFS", "GBFS", "AS", "CUS1", "CUS2"):
             self.assertIn(key, METHODS)
 
     def test_all_values_callable(self):

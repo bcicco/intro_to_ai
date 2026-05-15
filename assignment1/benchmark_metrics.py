@@ -2,8 +2,8 @@ import time
 import tracemalloc
 from statistics import mean
 
-from helpers import parse_problem
-from search import METHODS
+from assignment1.helpers import parse_problem
+from assignment1.search import METHODS
 
 
 def run_once(filename: str, method: str):
