@@ -54,3 +54,57 @@ def load_model(path: Path = MODEL_FILE):
     model.eval()
 
     return model, device
+def rebuild_scalers(wide_df: pd.DataFrame) -> dict[str, MinMaxScaler]:
+    """
+    Recreate the per-column MinMaxScalers fitted on the training split
+    """
+    scalers: dict[str, MinMaxScaler] = {}
+    n_rows = len(wide_df)
+    for col in wide_df.columns:
+        series = wide_df[col].dropna().values.astype(np.float32)
+        if len(series) / n_rows < MIN_COVERAGE:
+            continue
+        train_end = int(len(series) * 0.70)
+        scaler = MinMaxScaler(feature_range=(0, 1))
+        scaler.fit(series[:train_end].reshape(-1, 1))
+        scalers[col] = scaler
+    return scalers
+
+
+def predict_volumes(
+    model: TrafficLSTM,
+    device: torch.device,
+    scalers: dict[str, MinMaxScaler],
+    wide_df: pd.DataFrame,
+    query_time: pd.Timestamp,
+) -> dict[str, float]:
+    """
+    For each approach with a scaler, take the LOOKBACK intervals ending at
+    (or nearest to) query_time and predict the next 15-min volume.
+
+    Returns {column_name: predicted_volume_vehicles_per_15min}.
+    """
+    idx = wide_df.index.get_indexer([query_time], method="nearest")[0]
+    predictions: dict[str, float] = {}
+
+    with torch.no_grad():
+        for col, scaler in scalers.items():
+            raw = wide_df[col].values.astype(np.float32)
+            window = raw[max(0, idx - LOOKBACK + 1) : idx + 1]
+
+            if len(window) < LOOKBACK or np.any(np.isnan(window)):
+                continue
+
+            scaled = scaler.transform(window.reshape(-1, 1)).flatten()
+            x = (
+                torch.FloatTensor(scaled)
+                .unsqueeze(0)  # batch dim
+                .unsqueeze(-1)  # feature dim → (1, 12, 1)
+                .to(device)
+            )
+
+            pred = model(x).cpu().numpy()
+            vol = float(scaler.inverse_transform(pred).flatten()[0])
+            predictions[col] = max(0.0, vol)
+
+    return predictions
