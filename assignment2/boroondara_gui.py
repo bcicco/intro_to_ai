@@ -22,11 +22,13 @@ SITES_FILE = _PROCESSED / "boroondara_sites.json"
 EDGES_FILE = _PROCESSED / "proposed_edges.json"
 WIDE_FILE = _PROCESSED / "scats_wide.parquet"
 MODEL_FILE = Path(__file__).parent / "models" / "gru_model.pt"
+XGB_MODEL_FILE = Path(__file__).parent / "models" / "xgboost_model.pkl"
 
 
 from assignment1.search import METHODS  # noqa: E402
 from assignment2.build_problem import build_problem
 from assignment2.helpers.GRU_helpers import rebuild_scalers, load_model, predict_volumes
+from assignment2.helpers.XGBoost_helper import load_xgb_models, predict_volumes_xgb
 
 COST_FUNCTIONS: dict[str, str] = {
     "quadratic": "quadratic",
@@ -290,6 +292,7 @@ def _run_search(
     method,
     cost_fn,
     query_time_str,
+    prediction_model,
     output_widget,
     run_btn,
     on_route_ready,
@@ -310,20 +313,40 @@ def _run_search(
         if not query_time_str:
             write(f"No time given; using last timestamp: {query_time}")
 
-        model_result = load_model(MODEL_FILE)
-        if model_result is None:
-            write(f"WARNING: {MODEL_FILE.name} not found — using distance-only costs.")
-            volume_map: dict = {}
+        write(f"Loading prediction model from {prediction_model}")
+
+
+        if prediction_model == "GRU":
+            model_result = load_model(MODEL_FILE)
+
+
+            if model_result is None:
+                write(f"WARNING: {MODEL_FILE.name} not found — using distance-only costs.")
+                volume_map = {}
+            else:
+                model, device = model_result
+                write(f"GRU model loaded on {device}. Rebuilding scalers…")
+                scalers = rebuild_scalers(wide_df)
+                write(f"  {len(scalers)} approaches scaled.")
+                write(f"Predicting volumes at {query_time}…")
+                volume_map = predict_volumes(model, device, scalers, wide_df, query_time)
+        elif prediction_model == "XGBoost":
+            xgb_models = load_xgb_models(XGB_MODEL_FILE)
+
+            if xgb_models is None:
+                write(f"WARNING: {XGB_MODEL_FILE.name} not found — using distance-only costs.")
+                volume_map = {}
+            else:
+                write(f"XGBoost models loaded: {len(xgb_models)}")
+                write(f"Predicting volumes at {query_time} using xgboost…")
+                volume_map = predict_volumes_xgb(models=xgb_models, wide_df=wide_df, query_time=query_time)
         else:
-            model, device = model_result
-            write(f"Model loaded on {device}. Rebuilding scalers…")
-            scalers = rebuild_scalers(wide_df)
-            write(f"  {len(scalers)} approaches scaled.")
-            write(f"Predicting volumes at {query_time}…")
-            volume_map = predict_volumes(model, device, scalers, wide_df, query_time)
-            predicted = len(volume_map)
-            avg_vol = sum(volume_map.values()) / predicted if predicted else 0
-            write(f"  {predicted} predictions  (avg {avg_vol:.0f} vehicles/15 min)")
+            write(f"Unknown prediction model '{prediction_model}' — using distance-only costs.")
+            volume_map = {}
+
+        predicted = len(volume_map)
+        avg_vol = sum(volume_map.values()) / predicted if predicted else 0
+        write(f" {predicted} predictions used for search  (avg {avg_vol:.0f} vehicles/15 min)")
 
         problem = build_problem(
             origin_id, dest_ids, _SITES, _EDGES, volume_map, cost_fn=cost_fn
@@ -442,6 +465,17 @@ class App(tk.Tk):
             state="readonly",
             width=10,
         ).grid(row=2, column=1, sticky="w", **pad)
+
+        ttk.Label(pf, text="Prediction model:").grid(row=5, column=0, sticky="w", **pad)
+        self._prediction_model_var = tk.StringVar(value="GRU")
+
+        ttk.Combobox(
+            pf,
+            textvariable=self._prediction_model_var,
+            values=["GRU", "XGBoost", "LSTM"],
+            state="readonly",
+            width=14,
+        ).grid(row=5, column=1, sticky="w", **pad)
 
         ttk.Label(pf, text="Cost function:").grid(row=3, column=0, sticky="w", **pad)
         self._cost_var = tk.StringVar(value=_COSTS[0])
@@ -580,6 +614,7 @@ class App(tk.Tk):
         method = self._method_var.get().strip().upper()
         cost_fn = self._cost_var.get().strip()
         time_str = self._time_var.get().strip()
+        prediction_model = self._prediction_model_var.get().strip()
 
         if not origin_raw or not dest_raw:
             messagebox.showerror(
@@ -621,6 +656,7 @@ class App(tk.Tk):
                 method,
                 cost_fn,
                 time_str or None,
+                prediction_model,
                 self._output,
                 self._run_btn,
                 self._on_route_ready,

@@ -1,5 +1,3 @@
-from importlib.resources import path
-
 import joblib
 import pandas as pd
 import numpy as np
@@ -20,7 +18,7 @@ def load_xgb_models(path: Path = MODEL_FILE) -> dict | None:
 
   return joblib.load(path)
 
-def create_xbg_prediction_feature(series: pd.Series, query_time: pd.Timestamp, lookback: int = LOOKBACK) -> pd.DataFrame | None:
+def create_xbg_prediction_features(series: pd.Series, query_time: pd.Timestamp, lookback: int = LOOKBACK) -> pd.DataFrame | None:
   """Creating one prediction rows for the model"""
 
   idx = series.index.get_indexer([query_time], method="nearest")[0]
@@ -33,7 +31,7 @@ def create_xbg_prediction_feature(series: pd.Series, query_time: pd.Timestamp, l
   feature_data = {}
 
   for i in range(1, lookback + 1):
-    feature_data[f"lag{i}"] = window.iloc[-1]
+    feature_data[f"lag{i}"] = window.iloc[-i]
 
 
   feature_data["hour"] = query_time.hour
@@ -59,7 +57,7 @@ def predict_volumes_xgb(models: dict, wide_df: pd.DataFrame, query_time: pd.Time
     if len(series) < lookback:
       continue
 
-    x_pred = create_xbg_prediction_feature(series=series, query_time=query_time, lookback=lookback)
+    x_pred = create_xbg_prediction_features(series=series, query_time=query_time, lookback=lookback)
 
     if x_pred is None:
       continue
