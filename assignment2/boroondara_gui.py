@@ -30,6 +30,7 @@ from assignment1.search import METHODS  # noqa: E402
 from assignment2.build_problem import build_problem
 from assignment2.helpers.GRU_helpers import rebuild_scalers, load_model, predict_volumes
 from assignment2.helpers.XGBoost_helper import load_xgb_models, predict_volumes_xgb
+from assignment2.helpers.yen_ksp import yen_k_shortest
 
 COST_FUNCTIONS: dict[str, str] = {
     "quadratic": "quadratic",
@@ -296,7 +297,7 @@ def _run_search(
     prediction_model,
     output_widget,
     run_btn,
-    on_route_ready,
+    on_routes_ready,
 ):
 
     def write(text=""):
@@ -314,13 +315,10 @@ def _run_search(
         if not query_time_str:
             write(f"No time given; using last timestamp: {query_time}")
 
-        write(f"Loading prediction model from {prediction_model}")
-
+        write(f"Loading prediction model: {prediction_model}")
 
         if prediction_model == "GRU":
             model_result = load_model(MODEL_FILE)
-
-
             if model_result is None:
                 write(f"WARNING: {MODEL_FILE.name} not found — using distance-only costs.")
                 volume_map = {}
@@ -333,13 +331,12 @@ def _run_search(
                 volume_map = predict_volumes(model, device, scalers, wide_df, query_time)
         elif prediction_model == "XGBoost":
             xgb_models = load_xgb_models(XGB_MODEL_FILE)
-
             if xgb_models is None:
                 write(f"WARNING: {XGB_MODEL_FILE.name} not found — using distance-only costs.")
                 volume_map = {}
             else:
                 write(f"XGBoost models loaded: {len(xgb_models)}")
-                write(f"Predicting volumes at {query_time} using xgboost…")
+                write(f"Predicting volumes at {query_time}…")
                 volume_map = predict_volumes_xgb(models=xgb_models, wide_df=wide_df, query_time=query_time)
         else:
             write(f"Unknown prediction model '{prediction_model}' — using distance-only costs.")
@@ -347,48 +344,43 @@ def _run_search(
 
         predicted = len(volume_map)
         avg_vol = sum(volume_map.values()) / predicted if predicted else 0
-        write(f" {predicted} predictions used for search  (avg {avg_vol:.0f} vehicles/15 min)")
+        write(f"{predicted} predictions  (avg {avg_vol:.0f} veh/15 min)")
 
         problem = build_problem(
             origin_id, dest_ids, _SITES, _EDGES, volume_map, cost_fn=cost_fn
         )
 
-        write(f"\nRunning {method} ({cost_fn}) @ {query_time} …")
-        result = METHODS[method](problem)
+        write(f"\nFinding top-5 routes via {method} ({cost_fn}) @ {query_time} …")
+        raw_routes = yen_k_shortest(problem, k=5, solver=METHODS[method])
 
-        write("\n── Result " + "─" * 48)
-        if result:
-            path, cost, nodes_created = result
-            site_path = [str(n).zfill(4) for n in path]
+        if not raw_routes:
+            write("No path found between those sites.")
+            return
 
-            write(f"Destination reached : {site_path[-1]}")
-            write(f"Nodes created       : {nodes_created}")
-            write(f"Path                : {' -> '.join(site_path)}")
+        # Convert int node IDs → zero-padded site ID strings
+        routes: list[tuple[list[str], float]] = [
+            ([str(n).zfill(4) for n in path], cost)
+            for path, cost in raw_routes
+        ]
 
+        write(f"\n── Top {len(routes)} Routes " + "─" * 44)
+        for i, (site_path, cost) in enumerate(routes, 1):
             hops = []
-            for i in range(len(site_path) - 1):
-                a, b = site_path[i], site_path[i + 1]
+            for j in range(len(site_path) - 1):
+                a, b = site_path[j], site_path[j + 1]
                 road = _EDGE_LOOKUP.get((a, b)) or _EDGE_LOOKUP.get((b, a)) or "?"
-                hops.append(f"  {a} -> {b}  [{road}]")
-            write("\nRoute detail:")
+                hops.append(f"    {a} -> {b}  [{road}]")
+            if cost_fn == "quadratic":
+                cost_str = f"{cost:.1f} s  ({cost / 60:.1f} min)"
+            else:
+                cost_str = f"{cost:.1f} units  ({cost / 60:.2f} km-equiv)"
+            write(f"\nRoute {i}: {site_path[0]} → {site_path[-1]}  |  {cost_str}")
             write("\n".join(hops))
 
-            if cost_fn == "quadratic":
-                write(f"\nTotal cost : {cost:.1f} s  ({cost / 60:.1f} min)")
-            else:
-                write(
-                    f"\nTotal cost : {cost:.1f} units  ({cost / 60:.2f} km-equivalent)"
-                )
-
-            output_widget.after(
-                0, lambda: on_route_ready(site_path, cost, method, cost_fn)
-            )
-        else:
-            write("No path found between those sites.")
+        output_widget.after(0, lambda r=routes: on_routes_ready(r, method, cost_fn))
 
     except Exception as exc:
         import traceback
-
         write(f"\nERROR: {exc}")
         write(traceback.format_exc())
     finally:
@@ -433,6 +425,7 @@ class App(tk.Tk):
     def _build_search_tab(self, parent):
         parent.columnconfigure(0, weight=1)
         parent.rowconfigure(2, weight=1)
+        parent.rowconfigure(3, weight=0)
         pad = {"padx": 8, "pady": 4}
 
         pf = ttk.LabelFrame(parent, text="Search Parameters")
@@ -539,6 +532,20 @@ class App(tk.Tk):
         )
         self._output.grid(row=0, column=0, sticky="nsew", padx=4, pady=4)
 
+        # ── Routes panel ───────────────────────────────────────────────────────
+        rf = ttk.LabelFrame(parent, text="Top Routes  (click to view on map)")
+        rf.grid(row=3, column=0, sticky="ew", padx=10, pady=(0, 8))
+        rf.columnconfigure(0, weight=1)
+
+        self._routes_lb = tk.Listbox(
+            rf, height=5, font=("Consolas", 9), activestyle="dotbox",
+            selectmode="browse",
+        )
+        self._routes_lb.grid(row=0, column=0, sticky="ew", padx=4, pady=4)
+        self._routes_lb.bind("<<ListboxSelect>>", self._on_route_select)
+
+        self._routes: list[tuple[list[str], float]] = []
+
     # ── Map tab ────────────────────────────────────────────────────────────────
 
     def _build_map_tab(self, parent):
@@ -597,30 +604,53 @@ class App(tk.Tk):
                 "Not found", "No HTML map found. Run visualise_graph.py first."
             )
 
-    def _on_route_ready(self, site_path, cost, method, cost_fn):
-        self._last_site_path = site_path
-        self._last_cost = cost
+    def _on_routes_ready(self, routes: list[tuple[list[str], float]], method: str, cost_fn: str):
+        self._routes = routes
         self._last_method = method
         self._last_cost_fn = cost_fn
 
-        # Update inline map
+        self._routes_lb.delete(0, tk.END)
+        for i, (site_path, cost) in enumerate(routes):
+            if cost_fn == "quadratic":
+                cost_str = f"{cost / 60:.1f} min"
+            else:
+                cost_str = f"{cost:.1f} units"
+            label = f"{'★ ' if i == 0 else f'{i+1}. '}  {site_path[0]} → {site_path[-1]}   {len(site_path)} stops   {cost_str}"
+            self._routes_lb.insert(tk.END, label)
+
+        self._routes_lb.selection_set(0)
+        self._show_route(0)
+
+    def _on_route_select(self, _event):
+        sel = self._routes_lb.curselection()
+        if sel:
+            self._show_route(sel[0])
+
+    def _show_route(self, idx: int):
+        if not self._routes or idx >= len(self._routes):
+            return
+        site_path, cost = self._routes[idx]
+        method = self._last_method
+        cost_fn = self._last_cost_fn
+
+        self._last_site_path = site_path
+        self._last_cost = cost
+
         _draw_map(self._ax, site_path=site_path)
-        cost_str = (
-            f"{cost:.1f} s ({cost/60:.1f} min)"
-            if cost_fn == "quadratic"
-            else f"{cost:.1f} units ({cost/60:.2f} km-equiv)"
-        )
+        if cost_fn == "quadratic":
+            cost_str = f"{cost:.1f} s ({cost/60:.1f} min)"
+        else:
+            cost_str = f"{cost:.1f} units ({cost/60:.2f} km-equiv)"
         self._ax.set_title(
-            f"Route: {site_path[0]} → {site_path[-1]}  |  {method}  |  {cost_str}",
+            f"Route {idx+1}: {site_path[0]} → {site_path[-1]}  |  {cost_str}",
             fontsize=9,
         )
         self._canvas.draw()
         self._map_status.set(
-            f"Route: {site_path[0]} → {site_path[-1]}  ({method}, {len(site_path)} stops)  "
-            "— click 'Open in browser' for interactive map"
+            f"Route {idx+1}: {site_path[0]} → {site_path[-1]}  ({len(site_path)} stops, {cost_str})"
+            "  — click 'Open in browser' for interactive map"
         )
 
-        # Generate Folium HTML in background for browser use
         threading.Thread(
             target=_build_route_html,
             args=(site_path, method, cost, cost_fn),
@@ -697,7 +727,7 @@ class App(tk.Tk):
                 prediction_model,
                 self._output,
                 self._run_btn,
-                self._on_route_ready,
+                self._on_routes_ready,
             ),
             daemon=True,
         ).start()
