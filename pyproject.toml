@@ -20,6 +20,8 @@ dependencies = [
     "tqdm>=4.66.5",
     "folium>=0.18.0",
     "tkinterweb>=4.25.2",
+    "xgboost",
+    "tkcalendar>=1.6.1",
 ]
 
 

@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.lines import Line2D
+from tkcalendar import DateEntry
 
 # global paths
 _DIR = Path(__file__).parent
@@ -483,16 +484,43 @@ class App(tk.Tk):
             pf, textvariable=self._cost_var, values=_COSTS, state="readonly", width=14
         ).grid(row=3, column=1, sticky="w", **pad)
 
-        ttk.Label(pf, text="Time (optional):").grid(row=4, column=0, sticky="w", **pad)
-        self._time_var = tk.StringVar()
-        ttk.Entry(pf, textvariable=self._time_var, width=20).grid(
-            row=4, column=1, sticky="w", **pad
+        ttk.Label(pf, text="Time:").grid(row=4, column=0, sticky="w", **pad)
+
+        time_frame = ttk.Frame(pf)
+        time_frame.grid(row=4, column=1, columnspan=2, sticky="w", **pad)
+
+        self._use_last_ts = tk.BooleanVar(value=True)
+        self._last_ts_chk = ttk.Checkbutton(
+            time_frame,
+            text="Use last timestamp in dataset",
+            variable=self._use_last_ts,
+            command=self._on_timestamp_toggle,
         )
-        ttk.Label(
-            pf,
-            text='e.g. "2006-10-20 08:00"  (blank = last in dataset)',
-            foreground="grey",
-        ).grid(row=4, column=2, sticky="w", **pad)
+        self._last_ts_chk.pack(side="left")
+
+        self._date_entry = DateEntry(
+            time_frame,
+            width=12,
+            date_pattern="yyyy-mm-dd",
+            year=2006, month=10, day=31,
+            state="disabled",
+        )
+        self._date_entry.pack(side="left", padx=(10, 2))
+
+        self._hour_var = tk.StringVar(value="08")
+        self._min_var = tk.StringVar(value="00")
+
+        self._hour_spinbox = ttk.Spinbox(
+            time_frame, from_=0, to=23, width=3, format="%02.0f",
+            textvariable=self._hour_var, state="disabled", wrap=True,
+        )
+        self._hour_spinbox.pack(side="left")
+        ttk.Label(time_frame, text=":").pack(side="left")
+        self._min_spinbox = ttk.Spinbox(
+            time_frame, from_=0, to=45, increment=15, width=3, format="%02.0f",
+            textvariable=self._min_var, state="disabled", wrap=True,
+        )
+        self._min_spinbox.pack(side="left")
 
         bf = ttk.Frame(parent)
         bf.grid(row=1, column=0, sticky="ew", padx=10, pady=4)
@@ -603,6 +631,12 @@ class App(tk.Tk):
 
     # ── Helpers ────────────────────────────────────────────────────────────────
 
+    def _on_timestamp_toggle(self):
+        state = "disabled" if self._use_last_ts.get() else "normal"
+        self._date_entry.configure(state=state)
+        self._hour_spinbox.configure(state=state)
+        self._min_spinbox.configure(state=state)
+
     def _clear_output(self):
         self._output.configure(state="normal")
         self._output.delete("1.0", tk.END)
@@ -613,7 +647,11 @@ class App(tk.Tk):
         dest_raw = self._dest_var.get().strip()
         method = self._method_var.get().strip().upper()
         cost_fn = self._cost_var.get().strip()
-        time_str = self._time_var.get().strip()
+        if self._use_last_ts.get():
+            time_str = None
+        else:
+            date_str = self._date_entry.get_date().strftime("%Y-%m-%d")
+            time_str = f"{date_str} {self._hour_var.get().zfill(2)}:{self._min_var.get().zfill(2)}"
         prediction_model = self._prediction_model_var.get().strip()
 
         if not origin_raw or not dest_raw:
@@ -655,7 +693,7 @@ class App(tk.Tk):
                 dest_ids,
                 method,
                 cost_fn,
-                time_str or None,
+                time_str,
                 prediction_model,
                 self._output,
                 self._run_btn,
