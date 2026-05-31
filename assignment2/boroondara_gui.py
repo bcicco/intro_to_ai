@@ -24,12 +24,14 @@ EDGES_FILE = _PROCESSED / "proposed_edges.json"
 WIDE_FILE = _PROCESSED / "scats_wide.parquet"
 MODEL_FILE = Path(__file__).parent / "models" / "gru_model.pt"
 XGB_MODEL_FILE = Path(__file__).parent / "models" / "xgboost_model.pkl"
+LSTM_MODEL_FILE = Path(__file__).parent / "models" / "lstm_model.pt"
 
 
 from assignment1.search import METHODS  # noqa: E402
 from assignment2.build_problem import build_problem
 from assignment2.helpers.GRU_helpers import rebuild_scalers, load_model, predict_volumes
 from assignment2.helpers.XGBoost_helper import load_xgb_models, predict_volumes_xgb
+from assignment2.helpers.LSTM_helpers import load_model as load_model_lstm, predict_volumes as predict_volumes_lstm, rebuild_scalers as rebuild_scalers_lstm
 from assignment2.helpers.yen_ksp import yen_k_shortest
 
 COST_FUNCTIONS: dict[str, str] = {
@@ -338,6 +340,19 @@ def _run_search(
                 write(f"XGBoost models loaded: {len(xgb_models)}")
                 write(f"Predicting volumes at {query_time}…")
                 volume_map = predict_volumes_xgb(models=xgb_models, wide_df=wide_df, query_time=query_time)
+        elif prediction_model == "LSTM":
+            model_result = load_model_lstm(LSTM_MODEL_FILE)
+
+            if model_result is None:
+                write(f"WARNING: {LSTM_MODEL_FILE.name} not found — using distance-only costs.")
+                volume_map = {}
+            else:
+                model, device = model_result
+                write(f"LSTM model loaded on {device}. Rebuilding scalers…")
+                scalers = rebuild_scalers_lstm(wide_df)
+                write(f"  {len(scalers)} approaches scaled.")
+                write(f"Predicting volumes at {query_time}…")
+                volume_map = predict_volumes_lstm(model, device, scalers, wide_df, query_time)
         else:
             write(f"Unknown prediction model '{prediction_model}' — using distance-only costs.")
             volume_map = {}

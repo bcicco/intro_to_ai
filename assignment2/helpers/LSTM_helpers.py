@@ -11,7 +11,7 @@ HORIZON = 1
 MIN_COVERAGE = 0.5
 LOOKBACK = 12
 
-MODEL_FILE = Path(__file__).parent / "models" / "lstm_model.pth"
+MODEL_FILE = Path(__file__).parent / "models" / "lstm_model.pt"
 
 
 class TrafficLSTM(nn.Module):
